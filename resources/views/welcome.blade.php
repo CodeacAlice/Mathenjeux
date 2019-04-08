@@ -1,99 +1,111 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="fr">
 
-        <title>Laravel</title>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+  <title>Accueil</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/stylesheet.css') }}">
+  <link rel="stylesheet" type="text/css" href="/css/corpswhite.css">
 
-            .full-height {
-                height: 100vh;
-            }
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito" rel="stylesheet"> 
+</head>
 
-            .position-ref {
-                position: relative;
-            }
+<body>
+    <?php 
+        $level = './';
+        include('html/header.php'); 
+    ?>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <?php 
+        $titre = 'Bienvenue sur <span class="titre">nomdusite</span> !';
+        $sstitre = 'nomdusite, un site qu\'il est bien pour apprendre';
+        include('html/entete.php'); 
+    ?>
 
-            .content {
-                text-align: center;
-            }
+    <?php 
+        $page = 'accueil';
+        include('html/nav.php'); 
+    ?>
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+    <div id="support">
+        <div id="triangle3" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
+        <div id="triangle4" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
+        <div id="corps">
+            <h3>Bienvenue, nouvel arrivant !</h3>
+            <p>Mettons ici un peu de lorem ipsum qui servira à raconter à quel point le site, il est beau il est bon il est gentil, et que vous devriez donner sa certif’ à la personne qui l’a fait parce que franchement le site il est trop trop bien.</p>
+            <p>Vous pouvez aller <a href="chap/index.php">lire les chapitres</a> pour réviser votre cours.</p>
+            <p>Vous pouvez aussi <a href="meth/index.php">lire les méthodes</a> pour savoir comment utiliser votre cours.</p>
+            <p>Si vous pensez tout savoir, vous pouvez <a href="exeos/index.php">faire des exercices</a> pour vous muscler le cerveau.</p>
+            <p>Et bien sûr, vous pouvez <a href="login/inscription.php">vous inscrire</a> pour la modique somme de 499 euros par mois afin de profiter de plein d’avantages inutiles, ou bien <a href="login/connection.php">vous connecter</a> si vous êtes déjà inscrit.</p>
         </div>
-    </body>
+    </div>
+
+    <?php include('html/footer.php'); ?>
+    
+
+
+
+    <!-- <script type="text/javascript">
+        console.log('responsive');
+        // Menu burger
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+          if (!event.target.matches('.makeitdrop')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        } 
+
+
+
+        // Adapter la hauteur du support à la hauteur de l'écran
+        var newheights; var newheightc; var supp;
+        var bod; var ent; var nav; var foot;
+
+        function sizesup() {
+            bod = $('body').height();
+            ent = $('#entete').height();
+            nav = $('nav').height() + 2*parseInt($('nav').css('padding-top'));
+            foot = $('footer').height() + parseInt($('footer').css('padding-top')) + parseInt($('footer').css('padding-bottom'));
+
+            supp = $('#support').height() + parseInt($('#support').css('padding-top')) + parseInt($('#support').css('padding-bottom'));;
+            newheights = bod - ent - nav - foot;
+
+            if (supp < newheights) {
+                $('#support').css('height', (newheights)+'px');
+                newheightc = newheights - parseInt($('#support').css('padding-top')) - parseInt($('#support').css('padding-bottom'));
+                $('#corps').css('height', (newheightc)+'px');
+            }
+            else {
+                $('#corps').css('height', 'auto');
+                $('#support').css('height', 'auto');
+            }
+        }
+        sizesup();
+
+        $(window).resize(function() {
+            sizesup();
+        });
+    </script> -->
+    <script type="text/javascript" src="js/responsive.js"></script>
+    <!-- <script src="{{ URL::asset('/js/app.js') }}"></script> -->
+</body>
 </html>
