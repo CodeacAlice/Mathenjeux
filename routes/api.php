@@ -20,3 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/chapitres', 'ChapitreController@index')->name('chapitres.index');
 Route::get('/chapitres/{id}', 'ChapitreController@show')->name('chapitres.show');
+Route::get('/domaines/{id}/chapitres', 'ChapitreController@showdom')->name('domaines.showchap');
+
+Route::get('/domaines', 'DomaineController@index')->name('domaines.index');

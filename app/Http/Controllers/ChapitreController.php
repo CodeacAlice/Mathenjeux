@@ -15,8 +15,21 @@ class ChapitreController extends Controller
      */
 
     public function show($idchapters) {
-    	$chapitres = Chapitre::select('idchapters', 'title')->where('idchapters', $idchapters)->get()->toArray();
+    	$chapitres = Chapitre::select('idchapters', 'title', 'done', 'link')->where('idchapters', $idchapters)->get()->toArray();
+        //$chapitres = Chapitre::findOrFail($idchapters);
     	return response()->json($chapitres);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @param int $idchapters
+     * @return \Illuminate\Http\Response
+     */
+
+    public function showdom($iddomaine) {
+        $chapitres = Chapitre::select('idchapters', 'title', 'done', 'link')->where('domaines_iddomaines', $iddomaine)->get()->toArray();
+        //$chapitres = Chapitre::findOrFail($idchapters);
+        return response()->json($chapitres);
     }
 
     /**
