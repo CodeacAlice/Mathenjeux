@@ -14,7 +14,6 @@ window.Vue = require('vue');
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/AtestComponent.vue -> <atest-component></atest-component>
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 

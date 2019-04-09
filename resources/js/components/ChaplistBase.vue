@@ -20,7 +20,6 @@
     		}
     	},
         mounted() {
-            console.log('Chaplist kinda mounted?');
             axios
         	.get('http://127.0.0.1:8000/api/domaines/')
         	.then(domaines => {
