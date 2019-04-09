@@ -9,7 +9,7 @@
   <title>Chapitres</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/stylesheet.css') }}">
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="/css/chaplist.css">
 
   <!-- jQuery -->
@@ -42,7 +42,7 @@
         <div id="corps">
 
             <div id="app">
-              <chaplist-component></chaplist-component>
+              <chaplist-base></chaplist-base>
             </div>
 
         </div>

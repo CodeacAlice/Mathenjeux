@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<div v-if="chap.done">
-			<a href="/chap>">
+			<a href="/chap/equations.php">
 				<li class="dispo onlydesktop">
 					<div>{{chap.title}}</div>
 				</li>
 			</a>
 			<li class="dispo notdesktop">
 				<div>{{chap.title}}</div>
-				<a href="/chap>">
+				<a href="/chap/equations.php">
 					<div class="read">Lire</div>
 				</a>
 			</li>
@@ -21,17 +21,9 @@
 import axios from 'axios';
 
     export default {
-    	name: 'ChapitreComponent',
+    	name: 'ChaplistDomaineChapitre',
     	props: {
     		chap: Object
-    	},
-    	data() {
-    		return {
-    			title: 'Hello',
-    		}
-    	},
-        mounted() {
-            console.log('Chapitre almost mounted.')
-        }
+    	}
     }
 </script>
