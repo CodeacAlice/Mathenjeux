@@ -40,7 +40,11 @@
         <div id="triangle3" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
         <div id="triangle4" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
         <div id="corps">
-            [TODO] Insérer ici la liste des chapitres
+
+            <div id="app">
+              <chaplist-component></chaplist-component>
+            </div>
+
         </div>
     </div>
 
@@ -48,5 +52,6 @@
     
 
     <script type="text/javascript" src="js/responsive.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
