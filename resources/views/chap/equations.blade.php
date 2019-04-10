@@ -22,6 +22,7 @@
   <!-- Vue -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
+  <div id="toppage">
   <?php 
     $level = '../../';
     include('html/header.php'); 
@@ -31,14 +32,15 @@
     $page = '';
     include('html/nav.php'); 
   ?>
+  </div>
 
 
 
   <div id="support">
-    <div id="triangle3" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
-    <div id="triangle4" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
-
-    <div id="app">
+    <!-- <div id="app"> -->
+      <div id="triangle3" class="tri"><svg-triangle></svg-triangle></div>
+      <div id="triangle4" class="tri"><svg-triangle></svg-triangle></div>
+    
       <div id="corps">
         <h2>Équations et problèmes</h2>
 
@@ -187,18 +189,16 @@
         <div class="btnContainer"><button id="btnTest">Test final</button></div>
 
 
-  
       </div> <!-- Fin corps -->
 
-      <nav-chap link="equations.php"></nav-chap>
-      
+      <div id="endchap"><nav-chap link="equations.php"></nav-chap></div>
 
+     <!-- </div>Fin app -->
 
-    </div> <!-- Fin app -->
-    
   </div> <!-- Fin du support -->
 
-  <?php include('html/footer.php'); ?>
+  <div id="bottompage"><?php include('html/footer.php'); ?></div>
+  
 
   <script type="text/javascript" src="../js/responsive.js"></script>
   <script type="text/javascript" src="../js/app.js"></script>
