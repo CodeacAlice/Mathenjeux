@@ -42,4 +42,43 @@ class ChapitreController extends Controller
     	$chapitres = Chapitre::select('idchapters', 'title', 'done', 'link')->get()->toArray();
     	return response()->json($chapitres);
     }
+
+    /**
+     * Display the previous chapter.
+     * @param str $link
+     * @return \Illuminate\Http\Response
+     */
+
+    public function showprev($link) {
+        $order = Chapitre::select('number')->where('link', $link)->value('number');
+
+        if ($order === 1) {return 'isfirst';}
+
+        $orderprev = $order - 1 ;
+        $prev = Chapitre::select('done', 'link')->where('number', $orderprev)->first();
+
+        if (!$prev['done']) {return 'notdone';}
+
+        return $prev['link'];
+    }
+
+    /**
+     * Display the next chapter.
+     * @param str $link
+     * @return \Illuminate\Http\Response
+     */
+
+    public function shownext($link) {
+        $order = Chapitre::select('number')->where('link', $link)->value('number');
+
+        $nbchap = Chapitre::count();
+        if ($order === $nbchap) {return 'islast';}
+
+        $ordernext = $order + 1 ;
+        $next = Chapitre::select('done', 'link')->where('number', $ordernext)->first();
+
+        if (!$next['done']) {return 'notdone';}
+
+        return $next['link'];
+    }
 }

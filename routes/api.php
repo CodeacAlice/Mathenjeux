@@ -21,5 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/chapitres', 'ChapitreController@index')->name('chapitres.index');
 Route::get('/chapitres/{id}', 'ChapitreController@show')->name('chapitres.show');
 Route::get('/domaines/{id}/chapitres', 'ChapitreController@showdom')->name('domaines.showchap');
+Route::get('/chapitres/{link}/prev', 'ChapitreController@showprev')->name('chapitres.showprevchap');
+Route::get('/chapitres/{link}/next', 'ChapitreController@shownext')->name('chapitres.shownextchap');
 
 Route::get('/domaines', 'DomaineController@index')->name('domaines.index');
