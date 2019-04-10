@@ -2,15 +2,15 @@
 	/* Mobile */
 @media screen and (max-width: 767px) {
 	#corps {
-		border-radius: 5px;
-		padding: 10px 15px 5px
+		padding: 0;
+		width: 90%;
 	}
 }
 	/* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
 	#corps {
-		border-radius: 10px;
-		padding: 15px 20px 5px
+		padding: 0;
+		width: 90%;
 	}
 }
 	/* Desktop */
@@ -91,10 +91,10 @@ li {
 	li {
 		display: flex;
 		justify-content: space-between;
-		font-size: 12px;
+		font-size: 13px;
 	}
 	li div {
-		padding: 7px;
+		padding: 15px 10px;
 	}
 	.read {
 		display: flex;

@@ -32,9 +32,9 @@ function sizesup() {
 	newheights = bod - ent - nav - foot;
 
 	if (supp < newheights) {
-		$('#support').css('height', (newheights)+'px');
+		$('#support').css('min-height', (newheights)+'px');
 		newheightc = newheights - parseInt($('#support').css('padding-top')) - parseInt($('#support').css('padding-bottom'));
-		$('#corps').css('height', (newheightc)+'px');
+		$('#corps').css('min-height', (newheightc)+'px');
 	}
 	else {
 		$('#corps').css('height', 'auto');
