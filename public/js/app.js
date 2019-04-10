@@ -1892,9 +1892,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ChaplistDomaine_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChaplistDomaine.vue */ "./resources/js/components/ChaplistDomaine.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -1910,12 +1907,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'EqBalancea',
   data: function data() {
     return {
+      oX: 150,
+      oY: 150,
+      pol: 18,
+      longP: 20,
+      hautP: 20,
+      longX: 20,
+      hautX: 20,
+      longY: 20,
+      hautY: 20,
+      longZ: 20,
+      hautZ: 20,
+      longB: 300,
+      hautB: 200,
       x: 3,
       y: 2,
       nbl: 1,
@@ -1930,12 +1938,12 @@ __webpack_require__.r(__webpack_exports__);
     struc: function struc() {
       var ctx = document.getElementById("canvasEq").getContext("2d");
       ctx.beginPath();
-      ctx.moveTo(oX, oY);
-      ctx.lineTo(oX, oY - hautB);
-      ctx.moveTo(oX, oY - hautB / 4);
-      ctx.lineTo(oX - longB, oY - hautB / 4);
-      ctx.moveTo(oX, oY - hautB / 4);
-      ctx.lineTo(oX + longB, oY - hautB / 4);
+      ctx.moveTo(this.oX, this.oY);
+      ctx.lineTo(this.oX, this.oY - this.hautB);
+      ctx.moveTo(this.oX, this.oY - this.hautB / 4);
+      ctx.lineTo(this.oX - this.longB, this.oY - this.hautB / 4);
+      ctx.moveTo(this.oX, this.oY - this.hautB / 4);
+      ctx.lineTo(this.oX + this.longB, this.oY - this.hautB / 4);
       ctx.stroke();
     },
     clear: function clear() {
@@ -1966,63 +1974,63 @@ __webpack_require__.r(__webpack_exports__);
     /* Dessins des éq */
     drawLeft: function drawLeft() {
       var ctx = document.getElementById("canvasEq").getContext("2d");
-      ctx.font = pol + "px Nunito";
-      var x = oX - longB;
-      var y = oY - hautB / 4;
+      ctx.font = this.pol + "px Nunito";
+      var x = this.oX - this.longB;
+      var y = this.oY - this.hautB / 4;
 
       for (var i = 1; i <= this.x; i++) {
         this.drawX(x, y);
-        x += longX;
+        x += this.longX;
 
-        if (x > oX - longX) {
-          x = oX - longB;
-          y -= hautX;
+        if (x > this.oX - this.longX) {
+          x = this.oX - this.longB;
+          y -= this.hautX;
         }
       }
 
       for (var i = 1; i <= this.y; i++) {
         this.drawY(x, y);
-        x += longX;
+        x += this.longX;
 
-        if (x > oX - longY) {
-          x = oX - longB;
-          y -= hautY;
+        if (x > this.oX - this.longY) {
+          x = this.oX - this.longB;
+          y -= this.hautY;
         }
       }
 
       for (var i = 1; i <= this.nbl; i++) {
         this.drawP(x, y);
-        x += longP;
+        x += this.longP;
 
-        if (x > oX - longP) {
-          x = oX - longB;
-          y -= hautP;
+        if (x > this.oX - this.longP) {
+          x = this.oX - this.longB;
+          y -= this.hautP;
         }
       }
     },
     drawRight: function drawRight() {
       var ctx = document.getElementById("canvasEq").getContext("2d");
-      ctx.font = pol + "px Nunito";
-      var x = oX;
-      var y = oY - hautB / 4;
+      ctx.font = this.pol + "px Nunito";
+      var x = this.oX;
+      var y = this.oY - this.hautB / 4;
 
       for (var i = 1; i <= this.z; i++) {
         this.drawZ(x, y);
-        x += longZ;
+        x += this.longZ;
 
-        if (x > oX + longB - longZ) {
-          x = oX;
-          y -= hautZ;
+        if (x > this.oX + this.longB - this.longZ) {
+          x = this.oX;
+          y -= this.hautZ;
         }
       }
 
       for (var i = 1; i <= this.nbr; i++) {
         this.drawP(x, y);
-        x += longP;
+        x += this.longP;
 
-        if (x > oX + longB - longP) {
-          x = oX;
-          y -= hautP;
+        if (x > this.oX + this.longB - this.longP) {
+          x = this.oX;
+          y -= this.hautP;
         }
       }
     },
@@ -2034,6 +2042,7 @@ __webpack_require__.r(__webpack_exports__);
     handleResize: function handleResize() {
       var _this = this;
 
+      var ctx = document.getElementById("canvasEq").getContext("2d");
       var windowWidth = $(window).width();
       console.log(windowWidth);
 
@@ -2041,56 +2050,56 @@ __webpack_require__.r(__webpack_exports__);
         console.log('petit');
         this.c1width = 280;
         this.c1height = 150;
-        oX = this.c1width / 2;
-        oY = this.c1height;
-        pol = 14;
-        ctx.font = pol + "px Nunito";
-        longP = 16;
-        hautP = 16;
-        longX = 16;
-        hautX = 16;
-        longY = 16;
-        hautY = 16;
-        longZ = 16;
-        hautZ = 16;
-        longB = 100;
-        hautB = 100;
+        this.oX = this.c1width / 2;
+        this.oY = this.c1height;
+        this.pol = 14;
+        ctx.font = this.pol + "px Nunito";
+        this.longP = 16;
+        this.hautP = 16;
+        this.longX = 16;
+        this.hautX = 16;
+        this.longY = 16;
+        this.hautY = 16;
+        this.longZ = 16;
+        this.hautZ = 16;
+        this.longB = 100;
+        this.hautB = 100;
       } else if (windowWidth < 1280) {
-        console.log('moyen');
+        console.log('mthis.oyen');
         this.c1width = 550;
         this.c1height = 200;
-        oX = this.c1width / 2;
-        oY = this.c1height;
-        pol = 16;
-        ctx.font = pol + "px Nunito";
-        longP = 18;
-        hautP = 18;
-        longX = 18;
-        hautX = 18;
-        longY = 18;
-        hautY = 18;
-        longZ = 18;
-        hautZ = 18;
-        longB = 200;
-        hautB = 150;
+        this.oX = this.c1width / 2;
+        this.oY = this.c1height;
+        this.pol = 16;
+        ctx.font = this.pol + "px Nunito";
+        this.longP = 18;
+        this.hautP = 18;
+        this.longX = 18;
+        this.hautX = 18;
+        this.longY = 18;
+        this.hautY = 18;
+        this.longZ = 18;
+        this.hautZ = 18;
+        this.longB = 200;
+        this.hautB = 150;
       } else {
         console.log('grand');
         this.c1width = 720;
         this.c1height = 250;
-        oX = this.c1width / 2;
-        oY = this.c1height;
-        pol = 18;
-        ctx.font = pol + "px Nunito";
-        longP = 20;
-        hautP = 20;
-        longX = 20;
-        hautX = 20;
-        longY = 20;
-        hautY = 20;
-        longZ = 20;
-        hautZ = 20;
-        longB = 300;
-        hautB = 200;
+        this.oX = this.c1width / 2;
+        this.oY = this.c1height;
+        this.pol = 18;
+        ctx.font = this.pol + "px Nunito";
+        this.longP = 20;
+        this.hautP = 20;
+        this.longX = 20;
+        this.hautX = 20;
+        this.longY = 20;
+        this.hautY = 20;
+        this.longZ = 20;
+        this.hautZ = 20;
+        this.longB = 300;
+        this.hautB = 200;
       }
 
       this.$nextTick(function () {
@@ -2101,6 +2110,476 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EqBalanceb.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EqBalanceb.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'EqBalanceb',
+  data: function data() {
+    return {
+      // Taille du canvas
+      c2width: 280,
+      c2height: 100,
+      oX2: 140,
+      oY2: 100,
+      // Tailles des éléments
+      longN: 20,
+      hautN: 20,
+      rayonI: 10,
+      longI: 20,
+      hautI: 20,
+      // Taille de la balance
+      longB2: 200,
+      hautB2: 175,
+      yl: 56,
+      yr: 56,
+      // Initialiser l'éq
+      orxl: 2,
+      ornbl: 5,
+      orxr: -3,
+      ornbr: -5,
+      // Affiche l'éq
+      xl: 2,
+      nbl: 5,
+      xr: -3,
+      nbr: -5,
+      // Modifier l'éq
+      multl: 1,
+      divl: 1,
+      multr: 1,
+      divr: 1,
+      addp: 0,
+      addi: 0,
+      mult: 1,
+      div: 1,
+      // Fin, erreurs
+      fail: false,
+      erreur: ''
+    };
+  },
+  methods: {
+    /* Structure de base, réinitialisation */
+    struc: function struc() {
+      if (this.tilting == "left") {
+        this.yl = this.oY2 - this.hautB2 / 8;
+        this.yr = this.oY2 - 3 * this.hautB2 / 8;
+      } else if (this.tilting == "right") {
+        this.yl = this.oY2 - 3 * this.hautB2 / 8;
+        this.yr = this.oY2 - this.hautB2 / 8;
+      } else {
+        this.yl = this.oY2 - this.hautB2 / 4;
+        this.yr = this.oY2 - this.hautB2 / 4;
+      }
+
+      var ctx2 = document.getElementById("canvasEq2").getContext("2d");
+      ctx2.beginPath();
+      ctx2.moveTo(this.oX2, this.oY2);
+      ctx2.lineTo(this.oX2, this.oY2 - this.hautB2);
+      ctx2.moveTo(this.oX2, this.yl);
+      ctx2.lineTo(this.oX2 - this.longB2, this.yl);
+      ctx2.moveTo(this.oX2, this.yr);
+      ctx2.lineTo(this.oX2 + this.longB2, this.yr);
+      ctx2.stroke();
+    },
+    clear: function clear() {
+      var ctx2 = document.getElementById("canvasEq2").getContext("2d");
+      ctx2.clearRect(0, 0, this.c2width, this.c2height);
+      ctx2.beginPath();
+      this.struc();
+    },
+    reload: function reload() {
+      this.xl = this.orxl;
+      this.xr = this.orxr;
+      this.nbl = this.ornbl;
+      this.nbr = this.ornbr;
+      this.fail = false;
+      this.erreur = '';
+      this.drawEq();
+    },
+
+    /* Dessins de chaque éléments */
+    drawNplus: function drawNplus(x, y) {
+      var ctx2 = document.getElementById("canvasEq2").getContext("2d");
+      ctx2.beginPath();
+      ctx2.moveTo(x, y);
+      ctx2.lineTo(x + this.longN, y);
+      ctx2.lineTo(x + this.longN, y - this.hautN);
+      ctx2.lineTo(x, y - this.hautN);
+      ctx2.lineTo(x, y);
+      ctx2.moveTo(x + this.longN / 4, y - this.hautN / 2);
+      ctx2.lineTo(x + 3 * this.longN / 4, y - this.hautN / 2);
+      ctx2.moveTo(x + this.longN / 2, y - this.hautN / 4);
+      ctx2.lineTo(x + this.longN / 2, y - 3 * this.hautN / 4);
+      ctx2.stroke();
+    },
+    drawNminus: function drawNminus(x, y) {
+      var ctx2 = document.getElementById("canvasEq2").getContext("2d");
+      ctx2.beginPath();
+      ctx2.moveTo(x, y);
+      ctx2.lineTo(x + this.longN, y);
+      ctx2.lineTo(x + this.longN, y - this.hautN);
+      ctx2.lineTo(x, y - this.hautN);
+      ctx2.lineTo(x, y);
+      ctx2.moveTo(x + this.longN / 4, y - this.hautN / 2);
+      ctx2.lineTo(x + 3 * this.longN / 4, y - this.hautN / 2);
+      ctx2.stroke();
+    },
+    drawIplus: function drawIplus(x, y) {
+      var ctx2 = document.getElementById("canvasEq2").getContext("2d");
+      ctx2.beginPath();
+      ctx2.arc(x + this.rayonI, y - this.rayonI, this.rayonI, 0, 2 * Math.PI);
+      ctx2.moveTo(x + this.longI / 4, y - this.hautI / 2);
+      ctx2.lineTo(x + 3 * this.longI / 4, y - this.hautI / 2);
+      ctx2.moveTo(x + this.longI / 2, y - this.hautI / 4);
+      ctx2.lineTo(x + this.longI / 2, y - 3 * this.hautI / 4);
+      ctx2.stroke();
+    },
+    drawIminus: function drawIminus(x, y) {
+      var ctx2 = document.getElementById("canvasEq2").getContext("2d");
+      ctx2.beginPath();
+      ctx2.arc(x + this.rayonI, y - this.rayonI, this.rayonI, 0, 2 * Math.PI);
+      ctx2.moveTo(x + this.longI / 4, y - this.hautI / 2);
+      ctx2.lineTo(x + 3 * this.longI / 4, y - this.hautI / 2);
+      ctx2.stroke();
+    },
+
+    /* Dessins des éq */
+    drawLeft: function drawLeft() {
+      var ctx2 = document.getElementById("canvasEq2").getContext("2d");
+      var x = this.oX2 - this.longB2;
+      var y = this.yl;
+
+      if (this.nbl > 0) {
+        for (var i = 1; i <= this.nbl; i++) {
+          this.drawNplus(x, y);
+          x += this.longN;
+
+          if (x > this.oX2 - this.longN) {
+            x = this.oX2 - this.longB2;
+            y -= this.hautN;
+          }
+        }
+      } else if (this.nbl < 0) {
+        for (var i = -1; i >= this.nbl; i--) {
+          this.drawNminus(x, y);
+          x += this.longN;
+
+          if (x > this.oX2 - this.longN) {
+            x = this.oX2 - this.longB2;
+            y -= this.hautN;
+          }
+        }
+      }
+
+      if (this.xl > 0) {
+        for (var i = 1; i <= this.xl; i++) {
+          this.drawIplus(x, y);
+          x += this.longN;
+
+          if (x > this.oX2 - this.longI) {
+            x = this.oX2 - this.longB2;
+            y -= this.hautI;
+          }
+        }
+      } else if (this.xl < 0) {
+        for (var i = -1; i >= this.xl; i--) {
+          this.drawIminus(x, y);
+          x += this.longN;
+
+          if (x > this.oX2 - this.longI) {
+            x = this.oX2 - this.longB2;
+            y -= this.hautI;
+          }
+        }
+      }
+    },
+    drawRight: function drawRight() {
+      var ctx2 = document.getElementById("canvasEq2").getContext("2d");
+      var x = this.oX2;
+      var y = this.yr;
+
+      if (this.nbr > 0) {
+        for (var i = 1; i <= this.nbr; i++) {
+          this.drawNplus(x, y);
+          x += this.longN;
+
+          if (x > this.oX2 + this.longB2 - this.longN) {
+            x = this.oX2;
+            y -= this.hautN;
+          }
+        }
+      } else if (this.nbr < 0) {
+        for (var i = -1; i >= this.nbr; i--) {
+          this.drawNminus(x, y);
+          x += this.longN;
+
+          if (x > this.oX2 + this.longB2 - this.longN) {
+            x = this.oX2;
+            y -= this.hautN;
+          }
+        }
+      }
+
+      if (this.xr > 0) {
+        for (var i = 1; i <= this.xr; i++) {
+          this.drawIplus(x, y);
+          x += this.longN;
+
+          if (x > this.oX2 + this.longB2 - this.longI) {
+            x = this.oX2;
+            y -= this.hautI;
+          }
+        }
+      } else if (this.xr < 0) {
+        for (var i = -1; i >= this.xr; i--) {
+          this.drawIminus(x, y);
+          x += this.longN;
+
+          if (x > this.oX2 + this.longB2 - this.longI) {
+            x = this.oX2;
+            y -= this.hautI;
+          }
+        }
+      }
+    },
+    drawEq: function drawEq() {
+      this.clear();
+      this.drawLeft();
+      this.drawRight();
+    },
+
+    /* Modifier l'éq */
+    multL: function multL() {
+      var m = parseFloat(this.multl);
+      this.xl *= m;
+      this.nbl *= m;
+      this.drawEq();
+    },
+    multR: function multR() {
+      var m = parseFloat(this.multr);
+      this.xr *= m;
+      this.nbr *= m;
+      this.drawEq();
+    },
+    divL: function divL() {
+      var d = parseFloat(this.divl);
+
+      if (d === 0) {
+        this.erreur = 'Horreur, vous avez divisé par zéro !';
+        this.fail = true;
+      } else {
+        this.xl /= d;
+        this.nbl /= d;
+        this.drawEq();
+      }
+    },
+    divR: function divR() {
+      var d = parseFloat(this.divr);
+
+      if (d === 0) {
+        this.erreur = 'Vous avez divisé par zéro !';
+        this.fail = true;
+      } else {
+        this.xr /= d;
+        this.nbr /= d;
+        this.drawEq();
+      }
+    },
+    addP: function addP() {
+      this.nbl += parseFloat(this.addp);
+      this.nbr += parseFloat(this.addp);
+      this.drawEq();
+    },
+    addI: function addI() {
+      this.xl += parseFloat(this.addi);
+      this.xr += parseFloat(this.addi);
+      this.drawEq();
+    },
+    multB: function multB() {
+      var m = parseFloat(this.mult);
+      this.xl *= m;
+      this.nbl *= m;
+      this.xr *= m;
+      this.nbr *= m;
+      this.drawEq();
+
+      if (m === 0) {
+        this.erreur = '...';
+        this.fail = true;
+      }
+    },
+    divB: function divB() {
+      var d = parseFloat(this.div);
+
+      if (d === 0) {
+        this.erreur = 'On. Ne. Divise. PAS. Par. ZERO !!!';
+        this.fail = true;
+      } else {
+        this.xl /= d;
+        this.nbl /= d;
+        this.xr /= d;
+        this.nbr /= d;
+        this.drawEq();
+      }
+    },
+    handleResize: function handleResize() {
+      var _this = this;
+
+      var windowWidth = $(window).width();
+      console.log(windowWidth);
+
+      if (windowWidth < 768) {
+        console.log('petit');
+        this.c2width = 300;
+        this.c2height = 150;
+        this.oX2 = this.c2width / 2;
+        this.oY2 = this.c2height;
+        this.longN = 20;
+        this.hautN = 20;
+        this.rayonI = 10;
+        this.longI = 20;
+        this.hautI = 20;
+        this.longB2 = 100;
+        this.hautB2 = 100;
+        this.yl = this.oY2 - this.hautB2 / 4;
+        this.yr = this.oY2 - this.hautB2 / 4;
+      } else if (windowWidth < 1280) {
+        console.log('moyen');
+        this.c2width = 550;
+        this.c2height = 200;
+        this.oX2 = this.c2width / 2;
+        this.oY2 = this.c2height;
+        this.longN = 20;
+        this.hautN = 20;
+        this.rayonI = 10;
+        this.longI = 20;
+        this.hautI = 20;
+        this.longB2 = 200;
+        this.hautB2 = 150;
+        this.yl = this.oY2 - this.hautB2 / 4;
+        this.yr = this.oY2 - this.hautB2 / 4;
+      } else {
+        console.log('grand');
+        this.c2width = 550;
+        this.c2height = 250;
+        this.oX2 = this.c2width / 2;
+        this.oY2 = this.c2height;
+        this.longN = 20;
+        this.hautN = 20;
+        this.rayonI = 10;
+        this.longI = 20;
+        this.hautI = 20;
+        this.longB2 = 200;
+        this.hautB2 = 175;
+        this.yl = this.oY2 - this.hautB2 / 4;
+        this.yr = this.oY2 - this.hautB2 / 4;
+      }
+
+      this.$nextTick(function () {
+        _this.drawEq();
+      });
+    }
+  },
+  mounted: function mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  computed: {
+    valx: function valx() {
+      return (this.ornbr - this.ornbl) / (this.orxl - this.orxr);
+    },
+    signr: function signr() {
+      if (this.nbr < 0) {
+        return '';
+      } else {
+        return '+';
+      }
+    },
+    signl: function signl() {
+      if (this.nbl < 0) {
+        return '';
+      } else {
+        return '+';
+      }
+    },
+    tilting: function tilting() {
+      var left = parseFloat(this.xl) * parseFloat(this.valx) + parseFloat(this.nbl);
+      var right = parseFloat(this.xr) * parseFloat(this.valx) + parseFloat(this.nbr);
+      var leftar = parseInt(left * 1000) / 1000;
+      var rightar = parseInt(right * 1000) / 1000;
+
+      if (leftar > rightar) {
+        this.erreur = 'Oups...';
+        this.fail = true;
+        return "left";
+      } else if (leftar < rightar) {
+        this.erreur = 'Oups...';
+        this.fail = true;
+        return "right";
+      } else {
+        return false;
+      }
+    },
+    sign: function sign() {
+      if (this.tilting == "left") {
+        return '>';
+      } else if (this.tilting == "right") {
+        return '<';
+      } else {
+        return '=';
+      }
+    },
+    done: function done() {
+      return this.xl === 1 && this.xr === 0 && this.nbl === 0 && this.nbr === this.valx || this.xr === 1 && this.xl === 0 && this.nbr === 0 && this.nbl === this.valx;
+    }
   }
 });
 
@@ -37483,6 +37962,656 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EqBalanceb.vue?vue&type=template&id=5d06e57d&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EqBalanceb.vue?vue&type=template&id=5d06e57d& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "bal2" } }, [
+    _c("div", { attrs: { id: "bal2can" } }, [
+      _c("div", { attrs: { id: "bal2gche" } }, [
+        _vm._v("À gauche :"),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", [
+          _vm._v("\n\t\t\t\tInconnues : "),
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.fail && !_vm.done,
+                expression: "!fail && !done"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.xl,
+                expression: "xl"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.xl },
+            on: {
+              input: [
+                function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.xl = $event.target.value
+                },
+                function($event) {
+                  return _vm.drawEq()
+                }
+              ]
+            }
+          }),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.fail || _vm.done,
+                  expression: "fail || done"
+                }
+              ]
+            },
+            [_vm._v(_vm._s(_vm.xl))]
+          ),
+          _c("br", { staticClass: "onlydesktop" }),
+          _vm._v("\n\t\t\t\tPoids : "),
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.fail && !_vm.done,
+                expression: "!fail && !done"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.nbl,
+                expression: "nbl"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.nbl },
+            on: {
+              input: [
+                function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.nbl = $event.target.value
+                },
+                function($event) {
+                  return _vm.drawEq()
+                }
+              ]
+            }
+          }),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.fail || _vm.done,
+                  expression: "fail || done"
+                }
+              ]
+            },
+            [_vm._v(_vm._s(_vm.nbl))]
+          ),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.fail && !_vm.done,
+                  expression: "!fail && !done"
+                }
+              ],
+              on: {
+                click: function($event) {
+                  return _vm.multL()
+                }
+              }
+            },
+            [
+              _vm._v("Mult"),
+              _c("span", { staticClass: "notmobile" }, [_vm._v("iplier")]),
+              _vm._v(" par :")
+            ]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.fail && !_vm.done,
+                expression: "!fail && !done"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.multl,
+                expression: "multl"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.multl },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.multl = $event.target.value
+              }
+            }
+          }),
+          _c("br", { staticClass: "notmobile" }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.fail && !_vm.done,
+                  expression: "!fail && !done"
+                }
+              ],
+              on: {
+                click: function($event) {
+                  return _vm.divL()
+                }
+              }
+            },
+            [
+              _vm._v("Div"),
+              _c("span", { staticClass: "notmobile" }, [_vm._v("iser")]),
+              _vm._v(" par :")
+            ]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.fail && !_vm.done,
+                expression: "!fail && !done"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.divl,
+                expression: "divl"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.divl },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.divl = $event.target.value
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "bal2canva" } }, [
+        _c("canvas", {
+          attrs: { id: "canvasEq2", width: _vm.c2width, height: _vm.c2height }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "bal2dte" } }, [
+        _vm._v("À droite :"),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", [
+          _vm._v("\n\t\t\t\tInconnues : "),
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.fail && !_vm.done,
+                expression: "!fail && !done"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.xr,
+                expression: "xr"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.xr },
+            on: {
+              input: [
+                function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.xr = $event.target.value
+                },
+                function($event) {
+                  return _vm.drawEq()
+                }
+              ]
+            }
+          }),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.fail || _vm.done,
+                  expression: "fail || done"
+                }
+              ]
+            },
+            [_vm._v(_vm._s(_vm.xr))]
+          ),
+          _c("br", { staticClass: "onlydesktop" }),
+          _vm._v("\n\t\t\t\tPoids : "),
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.fail && !_vm.done,
+                expression: "!fail && !done"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.nbr,
+                expression: "nbr"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.nbr },
+            on: {
+              input: [
+                function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.nbr = $event.target.value
+                },
+                function($event) {
+                  return _vm.drawEq()
+                }
+              ]
+            }
+          }),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.fail || _vm.done,
+                  expression: "fail || done"
+                }
+              ]
+            },
+            [_vm._v(_vm._s(_vm.nbr))]
+          ),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.fail && !_vm.done,
+                  expression: "!fail && !done"
+                }
+              ],
+              on: {
+                click: function($event) {
+                  return _vm.multR()
+                }
+              }
+            },
+            [
+              _vm._v("Mult"),
+              _c("span", { staticClass: "notmobile" }, [_vm._v("iplier")]),
+              _vm._v(" par :")
+            ]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.fail && !_vm.done,
+                expression: "!fail && !done"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.multr,
+                expression: "multr"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.multr },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.multr = $event.target.value
+              }
+            }
+          }),
+          _c("br", { staticClass: "notmobile" }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.fail && !_vm.done,
+                  expression: "!fail && !done"
+                }
+              ],
+              on: {
+                click: function($event) {
+                  return _vm.divR()
+                }
+              }
+            },
+            [
+              _vm._v("Div"),
+              _c("span", { staticClass: "notmobile" }, [_vm._v("iser")]),
+              _vm._v(" par :")
+            ]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.fail && !_vm.done,
+                expression: "!fail && !done"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.divr,
+                expression: "divr"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.divr },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.divr = $event.target.value
+              }
+            }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "equation" }, [
+      _vm._v(
+        _vm._s(_vm.xl) +
+          "x " +
+          _vm._s(_vm.signl) +
+          " " +
+          _vm._s(_vm.nbl) +
+          " " +
+          _vm._s(_vm.sign) +
+          " " +
+          _vm._s(_vm.xr) +
+          "x " +
+          _vm._s(_vm.signr) +
+          " " +
+          _vm._s(_vm.nbr)
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.fail && !_vm.done,
+            expression: "!fail && !done"
+          }
+        ]
+      },
+      [
+        _vm._v("\n\t\tSur les deux plateaux :"),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                return _vm.addI()
+              }
+            }
+          },
+          [_vm._v("Ajouter")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.addi,
+              expression: "addi"
+            }
+          ],
+          attrs: { type: "number" },
+          domProps: { value: _vm.addi },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.addi = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" inconnues ; "),
+        _c("br", { staticClass: "onlymobile" }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                return _vm.addP()
+              }
+            }
+          },
+          [_vm._v("Ajouter")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.addp,
+              expression: "addp"
+            }
+          ],
+          attrs: { type: "number" },
+          domProps: { value: _vm.addp },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.addp = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" poids"),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                return _vm.multB()
+              }
+            }
+          },
+          [_vm._v("Multiplier par")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.mult,
+              expression: "mult"
+            }
+          ],
+          attrs: { type: "number" },
+          domProps: { value: _vm.mult },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.mult = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" ; "),
+        _c("br", { staticClass: "onlymobile" }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                return _vm.divB()
+              }
+            }
+          },
+          [_vm._v("Diviser par")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.div,
+              expression: "div"
+            }
+          ],
+          attrs: { type: "number" },
+          domProps: { value: _vm.div },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.div = $event.target.value
+            }
+          }
+        })
+      ]
+    ),
+    _vm._v(" "),
+    _vm.fail
+      ? _c("div", [
+          _vm._v(_vm._s(_vm.erreur) + " "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.reload()
+                }
+              }
+            },
+            [_vm._v("Recommencer ?")]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.done
+      ? _c("div", [
+          _vm._v("Félicitations ! :D "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.reload()
+                }
+              }
+            },
+            [_vm._v("Recommencer ?")]
+          )
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -49678,6 +50807,7 @@ var map = {
 	"./components/ChaplistDomaine.vue": "./resources/js/components/ChaplistDomaine.vue",
 	"./components/ChaplistDomaineChapitre.vue": "./resources/js/components/ChaplistDomaineChapitre.vue",
 	"./components/EqBalancea.vue": "./resources/js/components/EqBalancea.vue",
+	"./components/EqBalanceb.vue": "./resources/js/components/EqBalanceb.vue",
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue"
 };
 
@@ -50074,6 +51204,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EqBalancea_vue_vue_type_template_id_5cf8cdfc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EqBalancea_vue_vue_type_template_id_5cf8cdfc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/EqBalanceb.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/EqBalanceb.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EqBalanceb_vue_vue_type_template_id_5d06e57d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EqBalanceb.vue?vue&type=template&id=5d06e57d& */ "./resources/js/components/EqBalanceb.vue?vue&type=template&id=5d06e57d&");
+/* harmony import */ var _EqBalanceb_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EqBalanceb.vue?vue&type=script&lang=js& */ "./resources/js/components/EqBalanceb.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EqBalanceb_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EqBalanceb_vue_vue_type_template_id_5d06e57d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EqBalanceb_vue_vue_type_template_id_5d06e57d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/EqBalanceb.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/EqBalanceb.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/EqBalanceb.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EqBalanceb_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./EqBalanceb.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EqBalanceb.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EqBalanceb_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/EqBalanceb.vue?vue&type=template&id=5d06e57d&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/EqBalanceb.vue?vue&type=template&id=5d06e57d& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EqBalanceb_vue_vue_type_template_id_5d06e57d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./EqBalanceb.vue?vue&type=template&id=5d06e57d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EqBalanceb.vue?vue&type=template&id=5d06e57d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EqBalanceb_vue_vue_type_template_id_5d06e57d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EqBalanceb_vue_vue_type_template_id_5d06e57d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -17,7 +17,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito:400,700,800" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito:400,700,800" rel="stylesheet">
 
   <!-- Vue -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -50,6 +50,7 @@
       <p>... C'est une égalité. Donc il y a le signe =. Mais ce n'est pas une égalité ordinaire (sinon ça s'appellerait juste égalité), c'est une égalité dans laquelle se trouvent un ou plusieurs nombres qu'on ne connait pas, et qu'on appelle des <strong>inconnues</strong>.</p>
       <p>Voyez ça un peu comme une balance à plateaux, toujours en équilibre, sur laquelle se trouvent des poids dont on connait la masse (représentés par la lettre P) et d'autres dont on ne connait pas la masse&nbsp;:</p>
 
+      <!-- Mettre ici la première balance -->
       <eq-balancea></eq-balancea>
 
       <h4>Mais comment on sait que c'est égal si on ne connait pas les nombres&nbsp;?</h4>
@@ -121,7 +122,8 @@
         Bien entendu vous pouvez rajouter ou enlever des poids, et vous pouvez aussi multiplier ou diviser le nombre de poids présents (la mutiplication n'étant au fond qu'une addition répétée plusieurs fois).
       </p>
 
-     
+      <!-- Mettre ici la seconde balance -->
+      <eq-balanceb></eq-balanceb>
 
       <p>
         Vous l'aurez remarqué, le seul moyen de réussir est de mettre ou enlever des poids des deux côtés de la balance à chaque fois.<br>
@@ -168,7 +170,7 @@
       </p>
       
 
-      <!-- Produit nul -->
+      <!-- Mettre ici les équations produit nul -->
 
 
       <p>
@@ -185,17 +187,17 @@
 
 
 <!-- Fin du support -->
-    </div></div>
+    </div> </div>
     
   </div>
 
   <?php include('html/footer.php'); ?>
 
-  <script type="text/javascript" src="js/responsive.js"></script>
+  <script type="text/javascript" src="../js/responsive.js"></script>
+  <script type="text/javascript" src="../js/app.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script type="text/javascript" src="js/balance.js"></script>
-  <script type="text/javascript" src="js/balance2.js"></script>
-  <script type="text/javascript" src="js/prodnul.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript" src="../js/balance.js"></script>
+  <script type="text/javascript" src="../js/balance2.js"></script> -->
 </body>
 </html>

@@ -14,12 +14,13 @@
 </template>
 
 <script type="text/javascript">
-	import ChaplistDomaine from './ChaplistDomaine.vue';
-	import axios from 'axios';
-
 	export default {
 		name: 'EqBalancea',
-    	data() { return {
+    	data() { 
+            return {
+                oX: 150, oY: 150, pol: 18,
+                longP: 20, hautP: 20, longX: 20, hautX: 20, longY: 20, hautY: 20, 
+                longZ: 20, hautZ: 20, longB: 300, hautB:200,
                 x: 3, y: 2, nbl: 1,
                 z: 7, nbr: 4,
                 c1width: 300, c1height: 150,
@@ -30,10 +31,10 @@
             struc() {
                 var ctx = document.getElementById("canvasEq").getContext("2d");
                 ctx.beginPath();
-                ctx.moveTo(oX, oY);
-                ctx.lineTo(oX, oY-hautB);
-                ctx.moveTo(oX, oY-hautB/4); ctx.lineTo(oX-longB, oY-hautB/4);
-                ctx.moveTo(oX, oY-hautB/4); ctx.lineTo(oX+longB, oY-hautB/4);
+                ctx.moveTo(this.oX, this.oY);
+                ctx.lineTo(this.oX, this.oY-this.hautB);
+                ctx.moveTo(this.oX, this.oY-this.hautB/4); ctx.lineTo(this.oX-this.longB, this.oY-this.hautB/4);
+                ctx.moveTo(this.oX, this.oY-this.hautB/4); ctx.lineTo(this.oX+this.longB, this.oY-this.hautB/4);
 
                 ctx.stroke();
             },
@@ -66,44 +67,44 @@
             /* Dessins des éq */
             drawLeft() {
                 var ctx = document.getElementById("canvasEq").getContext("2d");
-                ctx.font = pol+"px Nunito";
+                ctx.font = this.pol+"px Nunito";
 
-                var x = oX-longB;
-                var y = oY-hautB/4;
+                var x = this.oX-this.longB;
+                var y = this.oY-this.hautB/4;
 
                 for (var i = 1; i <= this.x; i++) {
                     this.drawX(x,y);
-                    x += longX;
-                    if (x > oX-longX) {x = oX-longB; y -= hautX;}
+                    x += this.longX;
+                    if (x > this.oX-this.longX) {x = this.oX-this.longB; y -= this.hautX;}
                 }
                 for (var i = 1; i <= this.y; i++) {
                     this.drawY(x,y);
-                    x += longX;
-                    if (x > oX-longY) {x = oX-longB; y -= hautY;}
+                    x += this.longX;
+                    if (x > this.oX-this.longY) {x = this.oX-this.longB; y -= this.hautY;}
                 }
                 for (var i = 1; i <= this.nbl; i++) {
                     this.drawP(x,y);
-                    x += longP;
-                    if (x > oX-longP) {x = oX-longB; y -= hautP;}
+                    x += this.longP;
+                    if (x > this.oX-this.longP) {x = this.oX-this.longB; y -= this.hautP;}
                 }
             },
 
             drawRight() {
                 var ctx = document.getElementById("canvasEq").getContext("2d");
-                ctx.font = pol+"px Nunito";
+                ctx.font = this.pol+"px Nunito";
 
-                var x = oX;
-                var y = oY-hautB/4;
+                var x = this.oX;
+                var y = this.oY-this.hautB/4;
 
                 for (var i = 1; i <= this.z; i++) {
                     this.drawZ(x,y);
-                    x += longZ;
-                    if (x > oX+longB-longZ) {x = oX; y -= hautZ;}
+                    x += this.longZ;
+                    if (x > this.oX+this.longB-this.longZ) {x = this.oX; y -= this.hautZ;}
                 }
                 for (var i = 1; i <= this.nbr; i++) {
                     this.drawP(x,y);
-                    x += longP;
-                    if (x > oX+longB-longP) {x = oX; y -= hautP;}
+                    x += this.longP;
+                    if (x > this.oX+this.longB-this.longP) {x = this.oX; y -= this.hautP;}
                 }
             },
 
@@ -112,43 +113,44 @@
                 this.drawLeft();this.drawRight();
             },
             handleResize(){
+                var ctx = document.getElementById("canvasEq").getContext("2d");
                 var windowWidth = $(window).width();
                 console.log(windowWidth);
                 if (windowWidth < 768) {
                     console.log('petit')
                     this.c1width = 280; this.c1height = 150;
-                    oX = this.c1width/2; oY = this.c1height;
+                    this.oX = this.c1width/2; this.oY = this.c1height;
 
-                    pol = 14; ctx.font = pol+"px Nunito";
-                    longP = 16; hautP = 16;
-                    longX = 16; hautX = 16;
-                    longY = 16; hautY = 16;
-                    longZ = 16; hautZ = 16;
-                    longB = 100; hautB = 100;
+                    this.pol = 14; ctx.font = this.pol+"px Nunito";
+                    this.longP = 16; this.hautP = 16;
+                    this.longX = 16; this.hautX = 16;
+                    this.longY = 16; this.hautY = 16;
+                    this.longZ = 16; this.hautZ = 16;
+                    this.longB = 100; this.hautB = 100;
                 }
                 else if (windowWidth < 1280) {
-                    console.log('moyen');
+                    console.log('mthis.oyen');
                     this.c1width = 550; this.c1height = 200;
-                    oX = this.c1width/2; oY = this.c1height;
+                    this.oX = this.c1width/2; this.oY = this.c1height;
 
-                    pol = 16; ctx.font = pol+"px Nunito";
-                    longP = 18; hautP = 18;
-                    longX = 18; hautX = 18;
-                    longY = 18; hautY = 18;
-                    longZ = 18; hautZ = 18;
-                    longB = 200; hautB = 150;
+                    this.pol = 16; ctx.font = this.pol+"px Nunito";
+                    this.longP = 18; this.hautP = 18;
+                    this.longX = 18; this.hautX = 18;
+                    this.longY = 18; this.hautY = 18;
+                    this.longZ = 18; this.hautZ = 18;
+                    this.longB = 200; this.hautB = 150;
                 }
                 else {
                     console.log('grand');
                     this.c1width = 720; this.c1height = 250;
-                    oX = this.c1width/2; oY = this.c1height;
+                    this.oX = this.c1width/2; this.oY = this.c1height;
 
-                    pol = 18; ctx.font = pol+"px Nunito";
-                    longP = 20; hautP = 20;
-                    longX = 20; hautX = 20;
-                    longY = 20; hautY = 20;
-                    longZ = 20; hautZ = 20;
-                    longB = 300; hautB = 200;
+                    this.pol = 18; ctx.font = this.pol+"px Nunito";
+                    this.longP = 20; this.hautP = 20;
+                    this.longX = 20; this.hautX = 20;
+                    this.longY = 20; this.hautY = 20;
+                    this.longZ = 20; this.hautZ = 20;
+                    this.longB = 300; this.hautB = 200;
                 }
                 this.$nextTick(() => {
                     this.drawEq();
