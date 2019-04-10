@@ -115,9 +115,7 @@
             handleResize(){
                 var ctx = document.getElementById("canvasEq").getContext("2d");
                 var windowWidth = $(window).width();
-                console.log(windowWidth);
                 if (windowWidth < 768) {
-                    console.log('petit')
                     this.c1width = 280; this.c1height = 150;
                     this.oX = this.c1width/2; this.oY = this.c1height;
 
@@ -129,7 +127,6 @@
                     this.longB = 100; this.hautB = 100;
                 }
                 else if (windowWidth < 1280) {
-                    console.log('mthis.oyen');
                     this.c1width = 550; this.c1height = 200;
                     this.oX = this.c1width/2; this.oY = this.c1height;
 
@@ -141,7 +138,6 @@
                     this.longB = 200; this.hautB = 150;
                 }
                 else {
-                    console.log('grand');
                     this.c1width = 720; this.c1height = 250;
                     this.oX = this.c1width/2; this.oY = this.c1height;
 

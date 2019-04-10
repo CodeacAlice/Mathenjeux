@@ -295,9 +295,7 @@ export default {
 		},
 		handleResize(){
 			var windowWidth = $(window).width();
-			console.log(windowWidth);
 			if (windowWidth < 768) {
-				console.log('petit')
 				this.c2width = 300; this.c2height = 150;
 				this.oX2 = this.c2width/2; this.oY2 = this.c2height;
 
@@ -309,7 +307,6 @@ export default {
 				this.yr = this.oY2-this.hautB2/4;
 			}
 			else if (windowWidth < 1280) {
-				console.log('moyen');
 				this.c2width = 550; this.c2height = 200;
 				this.oX2 = this.c2width/2; this.oY2 = this.c2height;
 
@@ -321,7 +318,6 @@ export default {
 				this.yr = this.oY2-this.hautB2/4;
 			}
 			else {
-				console.log('grand');
 				this.c2width = 550; this.c2height = 250;
 				this.oX2 = this.c2width/2; this.oY2 = this.c2height;
 

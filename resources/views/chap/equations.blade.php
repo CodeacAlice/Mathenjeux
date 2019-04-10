@@ -171,7 +171,7 @@
       
 
       <!-- Mettre ici les équations produit nul -->
-
+      <eq-prodnul></eq-prodnul>
 
       <p>
         Pour résoudre une équation produit nul de type (x+1)*(3x-2)=0, il faudra donc résoudre plusieurs équations simples de type x+1=0. Une fois ces équations résolues, il ne vous restera plus qu'à écrire "Les solutions de l'équation sont&nbsp;:" suivi des solutions que vous aurez trouvées.<br>
