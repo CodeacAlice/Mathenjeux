@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<div v-if="chap.done">
-			<a href="/chap/equations.php">
+			<a v-bind:href="link">
 				<li class="dispo onlydesktop">
 					<div>{{chap.title}}</div>
 				</li>
 			</a>
 			<li class="dispo notdesktop">
 				<div>{{chap.title}}</div>
-				<a href="/chap/equations.php">
+				<a v-bind:href="link">
 					<div class="read">Lire</div>
 				</a>
 			</li>
@@ -22,6 +22,11 @@ import axios from 'axios';
 
     export default {
     	name: 'ChaplistDomaineChapitre',
+    	data () {
+    		return {
+	    		link: '/chap/' + this.chap.link
+	    	}
+    	},
     	props: {
     		chap: Object
     	}
