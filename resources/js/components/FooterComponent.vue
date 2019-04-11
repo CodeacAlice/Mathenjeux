@@ -12,8 +12,9 @@
 	</footer>
 </template>
 
-<script type="text/javascript">
-	export default {
-		name: 'FooterComponent'
-	}
+<script>
+export default {
+	name: 'FooterComponent',
+	mounted() {sizesup();}
+}
 </script>

@@ -11,7 +11,7 @@
 		</a>
 
 		
-		<a class="notactive" v-if="page == 'chapitres'">
+		<a class="notactive" v-if="page == 'chap'">
 			<div class="navig"><svg-chapitres></svg-chapitres></div>
 			<p class="notmobile">Chapitres</p>
 		</a>
@@ -21,7 +21,7 @@
 		</a>
 
 		
-		<a class="notactive" v-if="page == 'methodes'"> 
+		<a class="notactive" v-if="page == 'meth'"> 
 			<div class="navig"><svg-methodes></svg-methodes></div>
 			<p class="notmobile">Méthodes</p>
 		</a>
@@ -31,7 +31,7 @@
 		</a>
 
 		
-		<a class="notactive" v-if="page == 'exercices'">
+		<a class="notactive" v-if="page == 'exos'">
 			<div class="navig"><svg-exercices></svg-exercices></div>
 			<p class="notmobile">Exercices</p>
 		</a>
@@ -47,6 +47,7 @@ export default {
 	name: 'SvgNom',
 	props: {
 		page: String
-	}
+	},
+	mounted() {sizesup();}
 }
 </script>

@@ -2019,6 +2019,9 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     titre: String,
     sstitre: String
+  },
+  mounted: function mounted() {
+    sizesup();
   }
 });
 
@@ -2858,7 +2861,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'FooterComponent'
+  name: 'FooterComponent',
+  mounted: function mounted() {
+    sizesup();
+  }
 });
 
 /***/ }),
@@ -2911,6 +2917,9 @@ __webpack_require__.r(__webpack_exports__);
     SvgMethodes: _SvgMethodes_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     SvgExercices: _SvgExercices_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     SvgMenuthin: _SvgMenuthin_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  mounted: function mounted() {
+    sizesup();
   }
 });
 
@@ -3082,6 +3091,9 @@ __webpack_require__.r(__webpack_exports__);
   name: 'SvgNom',
   props: {
     page: String
+  },
+  mounted: function mounted() {
+    sizesup();
   }
 });
 
@@ -38870,7 +38882,7 @@ var render = function() {
     _c("div", { attrs: { id: "logo" } }, [_c("svg-logo")], 1),
     _vm._v(" "),
     _c("div", [
-      _c("h1", [_vm._v(_vm._s(_vm.titre))]),
+      _vm._m(0),
       _vm._v(" "),
       _c("h2", [_vm._v(_vm._s(_vm.sstitre))])
     ]),
@@ -38890,7 +38902,18 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", [
+      _vm._v("Bienvenue sur "),
+      _c("span", { staticClass: "titre" }, [_vm._v("nomdusite")]),
+      _vm._v(" !")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -40246,7 +40269,7 @@ var render = function() {
           _c("p", { staticClass: "notmobile" }, [_vm._v("Accueil")])
         ]),
     _vm._v(" "),
-    _vm.page == "chapitres"
+    _vm.page == "chap"
       ? _c("a", { staticClass: "notactive" }, [
           _c("div", { staticClass: "navig" }, [_c("svg-chapitres")], 1),
           _vm._v(" "),
@@ -40258,7 +40281,7 @@ var render = function() {
           _c("p", { staticClass: "notmobile" }, [_vm._v("Chapitres")])
         ]),
     _vm._v(" "),
-    _vm.page == "methodes"
+    _vm.page == "meth"
       ? _c("a", { staticClass: "notactive" }, [
           _c("div", { staticClass: "navig" }, [_c("svg-methodes")], 1),
           _vm._v(" "),
@@ -40270,7 +40293,7 @@ var render = function() {
           _c("p", { staticClass: "notmobile" }, [_vm._v("Méthodes")])
         ]),
     _vm._v(" "),
-    _vm.page == "exercices"
+    _vm.page == "exos"
       ? _c("a", { staticClass: "notactive" }, [
           _c("div", { staticClass: "navig" }, [_c("svg-exercices")], 1),
           _vm._v(" "),

@@ -2,7 +2,7 @@
 	<div id="entete">
 		<div id="logo"><svg-logo></svg-logo></div>
 		<div>
-			<h1>{{titre}}</h1>
+			<h1>Bienvenue sur <span class="titre">nomdusite</span> !</h1>
 			<h2>{{sstitre}}</h2>
 		</div>
 		<div id="triangle1" class="tri"><svg-triangle></svg-triangle></div>
@@ -25,6 +25,7 @@ export default {
 	props: {
 		titre: String,
 		sstitre: String,
-	}
+	},
+	mounted() {sizesup();}
 }
 </script>

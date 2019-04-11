@@ -34,6 +34,7 @@ export default {
 		SvgMethodes,
 		SvgExercices,
 		SvgMenuthin,
-	}
+	},
+	mounted() {sizesup();}
 }
 </script>
