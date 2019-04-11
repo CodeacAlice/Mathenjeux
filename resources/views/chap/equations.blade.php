@@ -22,18 +22,12 @@
   <!-- Vue -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
+<body>
   <div id="toppage">
-  <?php 
-    $level = '../../';
-    include('html/header.php'); 
-  ?>
+    <header-component></header-component>
 
-  <?php 
-    $page = '';
-    include('html/nav.php'); 
-  ?>
+    <navbar-component page=''></navbar-component>
   </div>
-
 
 
   <div id="support">
@@ -197,14 +191,10 @@
 
   </div> <!-- Fin du support -->
 
-  <div id="bottompage"><?php include('html/footer.php'); ?></div>
+  <div id="bottompage"><footer-component></footer-component></div>
   
 
   <script type="text/javascript" src="../js/responsive.js"></script>
   <script type="text/javascript" src="../js/app.js"></script>
-
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script type="text/javascript" src="../js/balance.js"></script>
-  <script type="text/javascript" src="../js/balance2.js"></script> -->
 </body>
 </html>

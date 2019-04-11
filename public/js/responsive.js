@@ -1,5 +1,5 @@
 // Menu burger
-function myFunction() {
+function burgerMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
