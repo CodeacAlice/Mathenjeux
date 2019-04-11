@@ -9,7 +9,7 @@
   <title>Accueil</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/stylesheet.css') }}">
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="/css/corpswhite.css">
 
   <!-- jQuery -->
@@ -20,25 +20,18 @@
 </head>
 
 <body>
-    <?php 
-        $level = './';
-        include('html/header.blade.php'); 
-    ?>
-
-    <?php 
-        $titre = 'Bienvenue sur <span class="titre">nomdusite</span> !';
-        $sstitre = 'nomdusite, un site qu\'il est bien pour apprendre';
-        include('html/entete.php'); 
-    ?>
-
-    <?php 
-        $page = 'accueil';
-        include('html/nav.php'); 
-    ?>
+  <div id="toppage">
+    <header-component></header-component>
+    <entete-component 
+    titre='Bienvenue sur nomdusite !'
+    sstitre = "nomdusite, un site qu'il est bien pour apprendre"
+    ></entete-component>
+    <navbar-component page='accueil'></navbar-component>
+  </div>
 
     <div id="support">
-        <div id="triangle3" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
-        <div id="triangle4" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
+      <div id="triangle3" class="tri"><svg-triangle></svg-triangle></div>
+      <div id="triangle4" class="tri"><svg-triangle></svg-triangle></div>
         <div id="corps">
             <h3>Bienvenue, nouvel arrivant !</h3>
             <p>Mettons ici un peu de lorem ipsum qui servira à raconter à quel point le site, il est beau il est bon il est gentil, et que vous devriez donner sa certif’ à la personne qui l’a fait parce que franchement le site il est trop trop bien.</p>
@@ -49,12 +42,10 @@
         </div>
     </div>
 
-    <?php include('html/footer.php'); ?>
+    <div id="bottompage"><footer-component></footer-component></div>
     
 
-
-
-    
     <script type="text/javascript" src="js/responsive.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
