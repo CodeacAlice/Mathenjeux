@@ -16,37 +16,31 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito:400,700,800" rel="stylesheet"> 
 </head>
 
 <body>
-    <?php 
-        $level = './';
-        include('html/header.php'); 
-    ?>
-
-    <?php 
-        $titre = 'Bienvenue sur <span class="titre">nomdusite</span> !';
-        $sstitre = 'Retrouvez ici la liste des méthodes pour réussir vos examens';
-        include('html/entete.php'); 
-    ?>
-
-    <?php 
-        $page = 'meth';
-        include('html/nav.php'); 
-    ?>
+  <div id="toppage">
+    <header-component></header-component>
+    <entete-component 
+    titre='Bienvenue sur nomdusite !'
+    sstitre = "Retrouvez ici la liste des méthodes pour réussir vos examens"
+    ></entete-component>
+    <navbar-component page='meth'></navbar-component>
+  </div>
 
     <div id="support">
-        <div id="triangle3" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
-        <div id="triangle4" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
-        <div id="corps">
-            <p>Il n'y a pas encore de méthode pour l'instant, un peu de patience ;)</p>
-        </div>
+      <div id="triangle3" class="tri"><svg-triangle></svg-triangle></div>
+      <div id="triangle4" class="tri"><svg-triangle></svg-triangle></div>
+      <div id="corps">
+          <p>Il n'y a pas encore de méthode pour l'instant, un peu de patience ;)</p>
+      </div>
     </div>
 
-    <?php include('html/footer.php'); ?>
+    <div id="bottompage"><footer-component></footer-component></div>
     
 
     <script type="text/javascript" src="js/responsive.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

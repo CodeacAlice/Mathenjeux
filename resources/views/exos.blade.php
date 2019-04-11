@@ -16,37 +16,31 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito:400,700,800" rel="stylesheet"> 
 </head>
 
 <body>
-    <?php 
-        $level = './';
-        include('html/header.php'); 
-    ?>
+  <div id="toppage">
+    <header-component></header-component>
+    <entete-component 
+    titre='Bienvenue sur nomdusite !'
+    sstitre = "Entraînez-vous ici avec les exercices"
+    ></entete-component>
+    <navbar-component page='exos'></navbar-component>
+  </div>
 
-    <?php 
-        $titre = 'Bienvenue sur <span class="titre">nomdusite</span> !';
-        $sstitre = 'Entraînez-vous ici avec les exercices';
-        include('html/entete.php'); 
-    ?>
+  <div id="support">
+    <div id="triangle3" class="tri"><svg-triangle></svg-triangle></div>
+    <div id="triangle4" class="tri"><svg-triangle></svg-triangle></div>
+      <div id="corps">
+          <p>Il n'y a pas encore d'exercice pour l'instant, un peu de patience ;)</p>
+      </div>
+  </div>
 
-    <?php 
-        $page = 'exos';
-        include('html/nav.php'); 
-    ?>
-
-    <div id="support">
-        <div id="triangle3" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
-        <div id="triangle4" class="tri"><?php echo file_get_contents("icons/triangle.svg"); ?></div>
-        <div id="corps">
-            <p>Il n'y a pas encore d'exercice pour l'instant, un peu de patience ;)</p>
-        </div>
-    </div>
-
-    <?php include('html/footer.php'); ?>
+  <div id="bottompage"><footer-component></footer-component></div>
     
 
     <script type="text/javascript" src="js/responsive.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
