@@ -78,7 +78,6 @@ export default {
 		.get('http://127.0.0.1:8000/api/chapitres/'+this.link+'/prev')
 		.then(response => {
 			var reppr = response.data;
-			console.log(reppr);
 			this.isfirst = (reppr == 'isfirst');
 			this.prevdone = (reppr !== 'isfirst' && reppr !== 'notdone');
 			this.prevlink = reppr;
@@ -88,7 +87,6 @@ export default {
 		.get('http://127.0.0.1:8000/api/chapitres/'+this.link+'/next')
 		.then(response => {
 			var repnext = response.data;
-			console.log(repnext);
 			this.islast = (repnext == 'islast');
 			this.nextdone = (repnext !== 'islast' && repnext !== 'notdone');
 			this.nextlink = repnext;

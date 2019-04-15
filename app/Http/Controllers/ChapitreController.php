@@ -10,6 +10,17 @@ class ChapitreController extends Controller
 {
 	/**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function index() {
+        $chapitres = Chapitre::select('idchapters', 'title', 'done', 'link')->get()->toArray();
+        return response()->json($chapitres);
+    }
+
+    /**
+     * Display a listing of the resource.
      * @param int $idchapters
      * @return \Illuminate\Http\Response
      */
@@ -30,17 +41,6 @@ class ChapitreController extends Controller
         $chapitres = Chapitre::select('idchapters', 'title', 'done', 'link')->where('domaines_iddomaines', $iddomaine)->get()->toArray();
         //$chapitres = Chapitre::findOrFail($idchapters);
         return response()->json($chapitres);
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function index() {
-    	$chapitres = Chapitre::select('idchapters', 'title', 'done', 'link')->get()->toArray();
-    	return response()->json($chapitres);
     }
 
     /**

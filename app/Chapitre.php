@@ -11,8 +11,8 @@ class Chapitre extends Model
     public $timestamps = false;
 
 
-    public function testchaps() {
-    	return $this->hasMany(Testchap::class);
+    public function evaluations() {
+    	return $this->hasMany(Evaluation::class);
     }
     public function domaines() {
     	return $this->belongsTo(Domaine::class);

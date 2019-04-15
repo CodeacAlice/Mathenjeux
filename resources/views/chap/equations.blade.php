@@ -15,6 +15,9 @@
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <!-- jQuery Modal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito:400,700,800" rel="stylesheet">
@@ -180,7 +183,7 @@
         <p>C'est bon, c'est compris ? Alors testez vos nouvelles connaissances avec ce test !<br>
         Et si vous avez un compte, n'oubliez pas de vous connecter afin de sauvegarder votre progression.</p>
 
-        <div class="btnContainer"><button id="btnTest">Test final</button></div>
+        <evaluation-base idchap="5"></evaluation-base>
 
 
       </div> <!-- Fin corps -->
