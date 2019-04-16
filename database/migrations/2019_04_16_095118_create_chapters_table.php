@@ -18,7 +18,7 @@ class CreateChaptersTable extends Migration
             $table->string('title', 255);
             $table->boolean('iscomplete')->default(0);
             $table->string('link', 255)->default('/chap');
-            $table->text('chapter');
+            $table->text('chapter')->nullable();
             $table->integer('order');
             $table->integer('fields_id');
             $table->foreign('fields_id')->references('id')->on('fields');
