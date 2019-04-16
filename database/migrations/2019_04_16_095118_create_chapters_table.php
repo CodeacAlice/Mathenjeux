@@ -14,12 +14,13 @@ class CreateChaptersTable extends Migration
     public function up()
     {
         Schema::create('chapters', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->autoIncrement();
             $table->string('title', 255);
             $table->boolean('iscomplete')->default(0);
             $table->string('link', 255)->default('/chap');
-            $table->text('chapter')->default('Chapitre en cours d\'écriture');
+            $table->text('chapter');
             $table->integer('order');
+            $table->integer('fields_id');
             $table->foreign('fields_id')->references('id')->on('fields');
         });
     }
