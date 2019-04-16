@@ -119,7 +119,7 @@ class ChaptersTableSeeder extends Seeder
             ->update([
             	'iscomplete' => 1, 
             	'link' => 'equations.php',
-            	'chapter' => '<h2>Équations et problèmes</h2>
+            	'content' => '<h2>Équations et problèmes</h2>
 
         <h3>1- Keskécé ? / Définitions</h3>
 
