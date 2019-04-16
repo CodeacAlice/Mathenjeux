@@ -14,8 +14,14 @@ class CreateQuestionsofexercicesTable extends Migration
     public function up()
     {
         Schema::create('questionsofexercices', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('id')->autoIncrement();
+            $table->string('question', 255);
+            $table->string('hint', 255);
+            $table->string('answer', 255);
+            $table->string('correction', 255);
+            $table->integer('order');
+            $table->integer('exercices_id');
+            $table->foreign('exercices_id')->references('id')->on('exercices');
         });
     }
 

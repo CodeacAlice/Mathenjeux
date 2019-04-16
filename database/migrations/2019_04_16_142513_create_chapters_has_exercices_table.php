@@ -14,8 +14,8 @@ class CreateChaptersHasExercicesTable extends Migration
     public function up()
     {
         Schema::create('chapters_has_exercices', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('chapters_id');
+            $table->integer('exercices_id');
         });
     }
 
