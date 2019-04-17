@@ -7,11 +7,11 @@
                 <p>Si plusieurs nombres sont demandés dans la réponse, rangez-les dans l'ordre croissant et séparez-les par un point-virgule.</p>
                 <p>Question {{nb}}/{{nbtot}} :</p>
                 <p>{{questions[nb-1].question}}</p>
-                <div v-show="!hasrep && questions[nb-1].idevaluations!==0" id="inputevalcontainer">
+                <div v-show="!hasrep && questions[nb-1].id!==0" id="inputevalcontainer">
                     <input id="inputeval" type="text" v-model="answer" v-on:keyup.enter="submitanswer" maxlength="255">
                     <button @click="submitanswer">Répondre</button>
                 </div>
-                <div v-show="hasrep && questions[nb-1].idevaluations!==0">
+                <div v-show="hasrep && questions[nb-1].id!==0">
                     {{message}}
                     <button @click="next">Suite</button>
                 </div>
@@ -36,7 +36,7 @@
             return {
                 questions: [
                     {
-                        idevaluations: 0,
+                        id: 0,
                         question: 'Si vous voyez ce message, c\'est que votre connexion est extrêmement lente ou que le site a un problème. N\'hésitez pas à contacter les administrateurs si le problème persiste (on ne peut en revanche rien faire pour votre connexion).'
                     }
                 ],
@@ -70,7 +70,7 @@
                     rep = rep.replace( /\s/g, '').replace( /&/g, '%26').toLowerCase();
                     console.log(rep);
                     axios
-                        .get('http://127.0.0.1:8000/api/evaluations/'+this.questions[this.nb-1].idevaluations+'/check/?answer='+rep)
+                        .get('http://127.0.0.1:8000/api/evaluations/'+this.questions[this.nb-1].id+'/check/?answer='+rep)
                         .then(response => {
                             console.log(response.data);
                             if (response.data) {

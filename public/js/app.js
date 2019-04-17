@@ -2736,7 +2736,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       questions: [{
-        idevaluations: 0,
+        id: 0,
         question: 'Si vous voyez ce message, c\'est que votre connexion est extrêmement lente ou que le site a un problème. N\'hésitez pas à contacter les administrateurs si le problème persiste (on ne peut en revanche rien faire pour votre connexion).'
       }],
       score: 0,
@@ -2772,7 +2772,7 @@ __webpack_require__.r(__webpack_exports__);
         var rep = '' + this.answer;
         rep = rep.replace(/\s/g, '').replace(/&/g, '%26').toLowerCase();
         console.log(rep);
-        axios.get('http://127.0.0.1:8000/api/evaluations/' + this.questions[this.nb - 1].idevaluations + '/check/?answer=' + rep).then(function (response) {
+        axios.get('http://127.0.0.1:8000/api/evaluations/' + this.questions[this.nb - 1].id + '/check/?answer=' + rep).then(function (response) {
           console.log(response.data);
 
           if (response.data) {
@@ -3039,13 +3039,13 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('http://127.0.0.1:8000/api/chapitres/' + this.link + '/prev').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('http://127.0.0.1:8000/api/chapters/' + this.link + '/prev').then(function (response) {
       var reppr = response.data;
       _this.isfirst = reppr == 'isfirst';
       _this.prevdone = reppr !== 'isfirst' && reppr !== 'notdone';
       _this.prevlink = reppr;
     });
-    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('http://127.0.0.1:8000/api/chapitres/' + this.link + '/next').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('http://127.0.0.1:8000/api/chapters/' + this.link + '/next').then(function (response) {
       var repnext = response.data;
       _this.islast = repnext == 'islast';
       _this.nextdone = repnext !== 'islast' && repnext !== 'notdone';
@@ -40472,10 +40472,8 @@ var render = function() {
                 {
                   name: "show",
                   rawName: "v-show",
-                  value:
-                    !_vm.hasrep &&
-                    _vm.questions[_vm.nb - 1].idevaluations !== 0,
-                  expression: "!hasrep && questions[nb-1].idevaluations!==0"
+                  value: !_vm.hasrep && _vm.questions[_vm.nb - 1].id !== 0,
+                  expression: "!hasrep && questions[nb-1].id!==0"
                 }
               ],
               attrs: { id: "inputevalcontainer" }
@@ -40524,9 +40522,8 @@ var render = function() {
                 {
                   name: "show",
                   rawName: "v-show",
-                  value:
-                    _vm.hasrep && _vm.questions[_vm.nb - 1].idevaluations !== 0,
-                  expression: "hasrep && questions[nb-1].idevaluations!==0"
+                  value: _vm.hasrep && _vm.questions[_vm.nb - 1].id !== 0,
+                  expression: "hasrep && questions[nb-1].id!==0"
                 }
               ]
             },

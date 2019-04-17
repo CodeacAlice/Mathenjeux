@@ -75,7 +75,7 @@ export default {
 	},
 	mounted() {
 		axios
-		.get('http://127.0.0.1:8000/api/chapitres/'+this.link+'/prev')
+		.get('http://127.0.0.1:8000/api/chapters/'+this.link+'/prev')
 		.then(response => {
 			var reppr = response.data;
 			this.isfirst = (reppr == 'isfirst');
@@ -84,7 +84,7 @@ export default {
 		})
 
 		axios
-		.get('http://127.0.0.1:8000/api/chapitres/'+this.link+'/next')
+		.get('http://127.0.0.1:8000/api/chapters/'+this.link+'/next')
 		.then(response => {
 			var repnext = response.data;
 			this.islast = (repnext == 'islast');
