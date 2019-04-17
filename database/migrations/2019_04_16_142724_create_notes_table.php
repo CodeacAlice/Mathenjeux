@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLevelsofusersTable extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateLevelsofusersTable extends Migration
      */
     public function up()
     {
-        Schema::create('levelsofusers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::create('notes', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->string('note', 255);
+            $table->integer('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateLevelsofusersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('levelsofusers');
+        Schema::dropIfExists('notes');
     }
 }

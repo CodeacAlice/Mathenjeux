@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChaptersHasExercicesTable extends Migration
+class CreateUsersHasChaptersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateChaptersHasExercicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('chapters_has_exercices', function (Blueprint $table) {
+        Schema::create('users_has_chapters', function (Blueprint $table) {
+            $table->integer('users_id');
             $table->integer('chapters_id');
-            $table->integer('exercices_id');
+            $table->integer('progress')->default(0);
+            $table->timestamps();
+            $table->foreign('users_id')->references('id')->on('users');
             $table->foreign('chapters_id')->references('id')->on('chapters');
-            $table->foreign('exercices_id')->references('id')->on('exercices');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateChaptersHasExercicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chapters_has_exercices');
+        Schema::dropIfExists('users_has_chapters');
     }
 }

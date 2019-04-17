@@ -14,8 +14,12 @@ class CreateUsersHasExercicesTable extends Migration
     public function up()
     {
         Schema::create('users_has_exercices', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('users_id');
+            $table->integer('exercices_id');
+            $table->integer('nboftries');
+            $table->boolean('exerciceisfinished')->default(0);
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('exercices_id')->references('id')->on('exercices');
         });
     }
 

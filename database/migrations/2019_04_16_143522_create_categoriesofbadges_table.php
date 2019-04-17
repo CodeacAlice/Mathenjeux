@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConnexionsTable extends Migration
+class CreateCategoriesofbadgesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateConnexionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('connexions', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::create('categoriesofbadges', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->string('name', 255);
         });
     }
 
@@ -26,6 +26,6 @@ class CreateConnexionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('connexions');
+        Schema::dropIfExists('categoriesofbadges');
     }
 }

@@ -14,8 +14,10 @@ class CreateUsersHasBadgesTable extends Migration
     public function up()
     {
         Schema::create('users_has_badges', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('users_id');
+            $table->integer('badges_id');
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('badges_id')->references('id')->on('badges');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersHasChaptersTable extends Migration
+class CreateTitlesofusersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateUsersHasChaptersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_has_chapters', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::create('titlesofusers', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->string('title', 255);
         });
     }
 
@@ -26,6 +26,6 @@ class CreateUsersHasChaptersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_has_chapters');
+        Schema::dropIfExists('titlesofusers');
     }
 }
