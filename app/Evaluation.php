@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Evaluation extends Model
 {
     protected $table = 'evaluations';
-    protected $filelabel = ['idevaluations', 'question', 'answer'];
+    protected $filelabel = ['id', 'question', 'answer'];
     public $timestamps = false;
 
 
-    public function chapitres() {
-    	return $this->belongsTo(Chapitre::class);
+    public function chapters() {
+    	return $this->belongsTo(Chapter::class);
     }
 }

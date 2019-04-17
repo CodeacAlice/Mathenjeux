@@ -18,14 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Routes to get chapters
-Route::get('/chapitres', 'ChapitreController@index')->name('chapitres.index');
-Route::get('/chapitres/{id}', 'ChapitreController@show')->name('chapitres.show');
-Route::get('/domaines/{id}/chapitres', 'ChapitreController@showdom')->name('domaines.showchap');
-Route::get('/chapitres/{link}/prev', 'ChapitreController@showprev')->name('chapitres.showprevchap');
-Route::get('/chapitres/{link}/next', 'ChapitreController@shownext')->name('chapitres.shownextchap');
+Route::get('/chapters', 'ChapterController@index')->name('chapters.index');
+Route::get('/chapters/{id}', 'ChapterController@show')->name('chapters.show');
+Route::get('/fields/{id}/chapters', 'ChapterController@showfield')->name('fields.showchap');
+Route::get('/chapters/{link}/prev', 'ChapterController@showprev')->name('chapters.showprevchap');
+Route::get('/chapters/{link}/next', 'ChapterController@shownext')->name('chapters.shownextchap');
 
-// Routes to get domaines
-Route::get('/domaines', 'DomaineController@index')->name('domaines.index');
+// Routes to get fields
+Route::get('/fields', 'FieldController@index')->name('fields.index');
+Route::get('/fields/{id}', 'FieldController@show')->name('fields.show');
 
 // Routes to get evaluations
 Route::get('/evaluations', 'EvaluationController@index')->name('evaluations.index');

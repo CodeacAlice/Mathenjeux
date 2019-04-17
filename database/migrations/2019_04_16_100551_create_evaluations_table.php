@@ -19,7 +19,6 @@ class CreateEvaluationsTable extends Migration
             $table->string('answer', 255);
             $table->integer('chapters_id');
             $table->foreign('chapters_id')->references('id')->on('chapters');
-            $table->timestamps();
         });
     }
 

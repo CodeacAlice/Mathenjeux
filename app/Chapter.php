@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Chapitre extends Model
+class Chapter extends Model
 {
     protected $table = 'chapters';
-    protected $filelabel = ['idchapters', 'title'];
+    protected $filelabel = ['id', 'title'];
     public $timestamps = false;
 
 
@@ -15,6 +15,6 @@ class Chapitre extends Model
     	return $this->hasMany(Evaluation::class);
     }
     public function domaines() {
-    	return $this->belongsTo(Domaine::class);
+    	return $this->belongsTo(Field::class);
     }
 }

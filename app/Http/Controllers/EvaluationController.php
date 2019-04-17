@@ -14,7 +14,7 @@ class EvaluationController extends Controller
      */
 
     public function index() {
-    	$eval = Evaluation::select('idevaluations', 'question', 'answer', 'chapters_idchapters')->get()->toArray();
+    	$eval = Evaluation::select('id', 'question', 'answer', 'chapters_id')->get()->toArray();
     	return response()->json($eval);
     }
 
@@ -26,7 +26,8 @@ class EvaluationController extends Controller
      */
 
     public function show($ideval) {
-    	$eval = Evaluation::select('idevaluations', 'question', 'answer', 'chapters_idchapters')->where('idevaluations', $ideval)->get()->toArray();
+        $eval = Evaluation::findOrFail($ideval);
+    	//$eval = Evaluation::select('id', 'question', 'answer', 'chapters_id')->where('id', $ideval)->get()->toArray();
     	return response()->json($eval);
     }
 
@@ -38,7 +39,7 @@ class EvaluationController extends Controller
 
     public function evalachap(Request $request, int $idchap) {
     	$nbquest = $request->nbtot;
-        $alleval = Evaluation::select('idevaluations', 'question')->where('chapters_idchapters', $idchap)->get()->toArray();
+        $alleval = Evaluation::select('id', 'question')->where('chapters_id', $idchap)->get()->toArray();
         $eval = [];
         for ($i=0; $i < $nbquest; $i++) { 
         	$index = rand(0,count($alleval)-1);
@@ -55,7 +56,9 @@ class EvaluationController extends Controller
      */
 
     public function checkans(Request $request, int $ideval) {
-        $correctanswer = Evaluation::select('answer')->where('idevaluations', $ideval)->value('answer');
+        $correctanswer = Evaluation::select('answer')
+                            ->where('id', $ideval)
+                            ->value('answer');
         if ($request->answer === $correctanswer) {return "true";}
         return "false";
     }
