@@ -26,7 +26,7 @@ import axios from 'axios';
     	},
         mounted() {
             axios
-            	.get('http://127.0.0.1:8000/api/domaines/'+this.dom.iddomaines+'/chapitres')
+            	.get('http://127.0.0.1:8000/api/fields/'+this.dom.id+'/chapters')
             	.then(chaps => {
             		this.chaps = chaps.data;
             	})

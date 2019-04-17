@@ -1788,7 +1788,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/domaines/').then(function (domaines) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/fields/').then(function (domaines) {
       _this.doms = domaines.data;
     });
   }
@@ -1835,7 +1835,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/domaines/' + this.dom.iddomaines + '/chapitres').then(function (chaps) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/fields/' + this.dom.id + '/chapters').then(function (chaps) {
       _this.chaps = chaps.data;
     });
   }
@@ -2757,10 +2757,8 @@ __webpack_require__.r(__webpack_exports__);
       this.answer = '';
       this.end = false;
       this.hasrep = false;
-      console.log('http://127.0.0.1:8000/api/evaluations/chap/' + this.idchap + '?nbtot=' + this.nbtot);
       axios.get('http://127.0.0.1:8000/api/evaluations/chap/' + this.idchap + '?nbtot=' + this.nbtot).then(function (response) {
         _this.questions = response.data;
-        console.log(_this.questions);
 
         _this.handleResize();
       });
@@ -39408,7 +39406,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.chap.done
+    _vm.chap.iscomplete
       ? _c("div", [
           _c("a", { attrs: { href: _vm.link } }, [
             _c("li", { staticClass: "dispo onlydesktop" }, [
@@ -56002,8 +56000,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/test/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/test/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/Projetcertif_Laravel/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/Projetcertif_Laravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

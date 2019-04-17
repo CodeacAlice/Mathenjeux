@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-if="chap.done">
+		<div v-if="chap.iscomplete">
 			<a v-bind:href="link">
 				<li class="dispo onlydesktop">
 					<div>{{chap.title}}</div>

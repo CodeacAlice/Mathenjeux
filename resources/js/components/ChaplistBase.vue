@@ -21,7 +21,7 @@
     	},
         mounted() {
             axios
-        	.get('http://127.0.0.1:8000/api/domaines/')
+        	.get('http://127.0.0.1:8000/api/fields/')
         	.then(domaines => {
         		this.doms = domaines.data;
             	})
