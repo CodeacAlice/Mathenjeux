@@ -14,7 +14,7 @@ class AddAvatarsIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('avatars_id');
+            $table->integer('avatars_id')->nullable();
             $table->foreign('avatars_id')->references('id')->on('avatars');
         });
     }
