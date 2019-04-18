@@ -22,4 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/chap', 'chap');
 Route::view('/meth', 'meth');
 Route::view('/exos', 'exos');
+Route::view('/testreg', 'testregister');
 Route::view('/chap/equations.php', 'chap/equations');

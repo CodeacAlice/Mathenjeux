@@ -1,0 +1,58 @@
+	/* Mobile */
+@media screen and (max-width: 767px) {
+	#btnRegister {
+		font-size: 16px;
+		padding: 7px 10px;
+		margin: 10px;
+	}
+}
+	/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+	#formContent {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.formlabel {
+		text-align: right;
+		padding-right: 10px;
+		padding-bottom: 10px;
+	}
+
+	#btnRegister {
+		font-size: 18px;
+		padding: 10px 15px;
+		margin: 20px;
+	}
+}
+	/* Desktop */
+@media screen and (min-width: 1280px) {
+	#formContent {
+		padding-top: 20px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.formlabel {
+		text-align: right;
+		padding-right: 10px;
+		padding-bottom: 10px;
+	}
+	#btnRegister {
+		font-size: 20px;
+		padding: 10px 15px;
+		margin: 30px;
+	}
+}
+
+.btnContainer {
+	text-align: center;
+}
+
+#btnRegister {
+		background: #FFFFFF;
+		border: 1px solid #000000;
+		box-sizing: border-box;
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 15px;
+	}

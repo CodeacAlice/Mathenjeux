@@ -64,7 +64,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref full-height" id="coucou">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -95,7 +95,6 @@
                 </div>
             </div>
         </div>
-        <div id="app"> <example-component></example-component> </div>
 
         <script type="text/javascript" src="../js/app.js"></script>
     </body>
