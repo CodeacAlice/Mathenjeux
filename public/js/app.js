@@ -40819,9 +40819,7 @@ var render = function() {
           _vm._v(" "),
           _c("a", { attrs: { href: "/register" } }, [_vm._v("Inscription")]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "<?=$level?>pages/login/connexion.php" } }, [
-            _vm._v("Connexion")
-          ])
+          _c("a", { attrs: { href: "/login" } }, [_vm._v("Connexion")])
         ]
       )
     ])
@@ -40837,14 +40835,9 @@ var staticRenderFns = [
         _vm._v("Inscription")
       ]),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "conn",
-          attrs: { href: "<?=$level?>pages/login/connexion.php" }
-        },
-        [_vm._v("Connexion")]
-      )
+      _c("a", { staticClass: "conn", attrs: { href: "/login" } }, [
+        _vm._v("Connexion")
+      ])
     ])
   }
 ]

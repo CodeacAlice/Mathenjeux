@@ -41,7 +41,7 @@
         <div id="corps">
             <h3>Inscription</h3>
 
-            <p>Vous avez déjà un compte ? <a href="/">Cliquez ici pour vous connecter</a>.</p>
+            <p>Vous avez déjà un compte ? <a href="/login">Cliquez ici pour vous connecter</a>.</p>
             <p>Pourquoi s’inscrire ? Parce que c’est gratuit, garanti sans spam, et que vous pourrez sauvegarder votre progression ainsi que vos meilleurs scores.</p>
             <p>Pour cela il vous suffit de remplir le formulaire ci-dessous puis de valider votre adresse mail :</p>
             <form method="POST" action="{{ route('register') }}">
@@ -52,7 +52,7 @@
                         <label for="username">{{ __('Pseudo') }}<span class="red">*</span> :</label>
                     </div>
 
-                    <div class="col-md-6">
+                    <div>
                         <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 
                         @if ($errors->has('username'))
@@ -65,7 +65,7 @@
 
                     <div class="formlabel"><label for="email">{{ __('Adresse mail') }}<span class="red">*</span> :</label></div>
 
-                    <div class="col-md-6">
+                    <div>
                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                         @if ($errors->has('email'))
@@ -80,7 +80,7 @@
 
                     <div class="formlabel"><label for="password">{{ __('Mot de passe') }}<span class="red">*</span> :</label></div>
 
-                    <div class="col-md-6">
+                    <div>
                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                         <br><span class="smalltext">(8 caractères minimum)</span>
 
@@ -96,7 +96,7 @@
 
                     <div class="formlabel"><label for="password-confirm">{{ __('Confirmer le mot de passe') }}<span class="red">*</span> :</label></div>
 
-                    <div class="col-md-6">
+                    <div>
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                     </div>
                 </div>
@@ -114,83 +114,6 @@
                     </button>
                 </div>
             </form>
-
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Pseudo') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
-
-                                @if ($errors->has('username'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Adresse mail') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmer le mot de passe') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
 
         </div>
     </div>
