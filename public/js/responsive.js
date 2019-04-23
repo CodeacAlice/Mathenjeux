@@ -37,6 +37,8 @@ function sizesup() {
 		$('#corps').css('min-height', (newheightc)+'px');
 	}
 	else {
+		$('#corps').css('min-height', '0');
+		$('#support').css('min-height', '0');
 		$('#corps').css('height', 'auto');
 		$('#support').css('height', 'auto');
 	}
