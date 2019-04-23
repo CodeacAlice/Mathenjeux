@@ -2,8 +2,8 @@
 	<header>
 		<a href="/" class="titre">Nom du site</a>
 		<div class="notmobile">
-			<a href="<?=$level?>pages/login/inscription.php" class="conn">Inscription</a>
-			<a href="<?=$level?>pages/login/connexion.php" class="conn">Connexion</a>
+			<a href="/register" class="conn">Inscription</a>
+			<a href="/login" class="conn">Connexion</a>
 		</div>
 		<div class="onlymobile dropdown">
 		    <button onclick="burgerMenu()" class="dropbtn makeitdrop"><svg-menuthin></svg-menuthin></button>
@@ -12,8 +12,8 @@
 		        <a href="/chap"><svg-chapitres></svg-chapitres> Chapitres</a>
 		        <a href="/meth"><svg-methodes></svg-methodes> Méthodes</a>
 		        <a href="/exos"><svg-exercices></svg-exercices> Exercices</a>
-		        <a href="<?=$level?>pages/login/inscription.php">Inscription</a>
-		        <a href="<?=$level?>pages/login/connexion.php">Connexion</a>
+		        <a href="/register">Inscription</a>
+		        <a href="/login">Connexion</a>
 		    </div>
 	    </div> 
 	</header>

@@ -40817,11 +40817,7 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "a",
-            { attrs: { href: "<?=$level?>pages/login/inscription.php" } },
-            [_vm._v("Inscription")]
-          ),
+          _c("a", { attrs: { href: "/register" } }, [_vm._v("Inscription")]),
           _vm._v(" "),
           _c("a", { attrs: { href: "<?=$level?>pages/login/connexion.php" } }, [
             _vm._v("Connexion")
@@ -40837,14 +40833,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "notmobile" }, [
-      _c(
-        "a",
-        {
-          staticClass: "conn",
-          attrs: { href: "<?=$level?>pages/login/inscription.php" }
-        },
-        [_vm._v("Inscription")]
-      ),
+      _c("a", { staticClass: "conn", attrs: { href: "/register" } }, [
+        _vm._v("Inscription")
+      ]),
       _vm._v(" "),
       _c(
         "a",

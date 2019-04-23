@@ -49,7 +49,7 @@
 
                 <div id="formContent">
                     <div class="formlabel">
-                        <label for="username">{{ __('Pseudo :') }}</label>
+                        <label for="username">{{ __('Pseudo') }}<span class="red">*</span> :</label>
                     </div>
 
                     <div class="col-md-6">
@@ -63,7 +63,7 @@
                         @endif
                     </div>
 
-                    <div class="formlabel"><label for="email">{{ __('Adresse mail :') }}</label></div>
+                    <div class="formlabel"><label for="email">{{ __('Adresse mail') }}<span class="red">*</span> :</label></div>
 
                     <div class="col-md-6">
                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -78,10 +78,11 @@
 
 
 
-                    <div class="formlabel"><label for="password">{{ __('Mot de passe :') }}</label></div>
+                    <div class="formlabel"><label for="password">{{ __('Mot de passe') }}<span class="red">*</span> :</label></div>
 
                     <div class="col-md-6">
                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                        <br><span class="smalltext">(8 caractères minimum)</span>
 
                         @if ($errors->has('password'))
                         <br>
@@ -93,13 +94,19 @@
 
 
 
-                    <div class="formlabel"><label for="password-confirm">{{ __('Confirmer le mot de passe :') }}</label></div>
+                    <div class="formlabel"><label for="password-confirm">{{ __('Confirmer le mot de passe') }}<span class="red">*</span> :</label></div>
 
                     <div class="col-md-6">
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                     </div>
                 </div>
 
+                <p>
+                    Les champs marqués d’un <span class="red">*</span> sont obligatoires.
+                </p>
+                <p>
+                    Il est fortement conseillé de mettre un mot de passe avec des caractères spéciaux mais surtout long. Genre plusieurs mots à suivre, voire une phrase (en plus c'est plus facile à retenir).
+                </p>
 
                 <div class="btnContainer">
                     <button type="submit" id="btnRegister">

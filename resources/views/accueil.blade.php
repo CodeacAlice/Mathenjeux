@@ -41,7 +41,7 @@
       <p>Vous pouvez aller <a href="/chap">lire les chapitres</a> pour réviser votre cours.</p>
       <p>Vous pouvez aussi <a href="/meth">lire les méthodes</a> pour savoir comment utiliser votre cours.</p>
       <p>Si vous pensez tout savoir, vous pouvez <a href="/exos">faire des exercices</a> pour vous muscler le cerveau.</p>
-      <p>Et bien sûr, vous pouvez <a href="login/inscription.php">vous inscrire</a> pour la modique somme de 499 euros par mois afin de profiter de plein d’avantages inutiles, ou bien <a href="login/connection.php">vous connecter</a> si vous êtes déjà inscrit.</p>
+      <p>Et bien sûr, vous pouvez <a href="/register">vous inscrire</a> pour la modique somme de 499 euros par mois afin de profiter de plein d’avantages inutiles, ou bien <a href="/login">vous connecter</a> si vous êtes déjà inscrit.</p>
     </div>
   </div>
 

@@ -15,6 +15,9 @@ body {
 a {text-decoration: none;}
 a:hover {text-decoration: underline;}
 
+.red {color: red;}
+
+
 .triangle {fill: #fff;}
 .tri {
 	position: absolute;
@@ -31,6 +34,7 @@ a:hover {text-decoration: underline;}
 		width: 25px;
 		height: 25px;
 	}
+	.smalltext {font-size: 10px;}
 }
 	/* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -42,6 +46,7 @@ a:hover {text-decoration: underline;}
 		width: 60px;
 		height: 60px;
 	}
+	.smalltext {font-size: 12px;}
 }
 	/* Desktop */
 @media screen and (min-width: 1280px) {
@@ -53,6 +58,7 @@ a:hover {text-decoration: underline;}
 		width: 60px;
 		height: 60px;
 	}
+	.smalltext {font-size: 14px;}
 }
 
 

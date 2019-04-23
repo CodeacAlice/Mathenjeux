@@ -11,16 +11,21 @@
 |
 */
 
+// Main routes
 Route::get('/', function () {
-    return view('welcome');
+    return view('accueil');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('/chap', 'chap');
 Route::view('/meth', 'meth');
 Route::view('/exos', 'exos');
-Route::view('/testreg', 'testregister');
+
+// Authentification
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Chapters
 Route::view('/chap/equations.php', 'chap/equations');
+
+// Tests
+Route::view('/testreg', 'testregister');
