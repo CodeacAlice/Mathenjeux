@@ -14,7 +14,7 @@
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="/css/corpswhite.css">
-  <link rel="stylesheet" type="text/css" href="/css/register.css">
+  <link rel="stylesheet" type="text/css" href="/css/login.css">
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -26,6 +26,9 @@
 <body>
     <div id="toppage">
         <header-component></header-component>
+        @if ($errors->has('username') || $errors->has('email') || $errors->has('password'))
+        <div id="error">Houston, We've Got a Problem</div>
+        @endif
         <entete-component 
         titre='Bienvenue sur nomdusite !'
         sstitre = "Souhaitez-vous vous inscrire ?"
@@ -57,9 +60,9 @@
 
                         @if ($errors->has('username'))
                         <br>
-                        <span class="invalid-feedback" role="alert">
+                        <div class="errormessage" role="alert">
                             <strong>{{ $errors->first('username') }}</strong>
-                        </span>
+                        </div>
                         @endif
                     </div>
 
@@ -70,9 +73,9 @@
 
                         @if ($errors->has('email'))
                         <br>
-                        <span class="invalid-feedback" role="alert">
+                        <div class="errormessage" role="alert">
                             <strong>{{ $errors->first('email') }}</strong>
-                        </span>
+                        </div>
                         @endif
                     </div>
 
@@ -86,9 +89,9 @@
 
                         @if ($errors->has('password'))
                         <br>
-                        <span class="invalid-feedback" role="alert">
+                        <div class="errormessage" role="alert">
                             <strong>{{ $errors->first('password') }}</strong>
-                        </span>
+                        </div>
                         @endif
                     </div>
 

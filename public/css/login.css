@@ -1,3 +1,32 @@
+.btnContainer {
+	text-align: center;
+}
+
+#btnRegister {
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+}
+
+
+#error {
+	background-color: red;
+	padding: 15px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+}
+
+.errormessage {
+	color: red;
+	padding: 5px 0;
+}
+
+
+
+
 	/* Mobile */
 @media screen and (max-width: 767px) {
 	#btnRegister {
@@ -43,16 +72,4 @@
 		padding: 10px 15px;
 		margin: 30px;
 	}
-}
-
-.btnContainer {
-	text-align: center;
-}
-
-#btnRegister {
-	background: #FFFFFF;
-	border: 1px solid #000000;
-	box-sizing: border-box;
-	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 15px;
 }

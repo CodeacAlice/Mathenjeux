@@ -14,7 +14,7 @@
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="/css/corpswhite.css">
-  <link rel="stylesheet" type="text/css" href="/css/register.css">
+  <link rel="stylesheet" type="text/css" href="/css/login.css">
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -26,8 +26,8 @@
 <body>
     <div id="toppage">
         <header-component></header-component>
-        @if ($errors->has('username'))
-        <p>Coucou</p>
+        @if ($errors->has('username') || $errors->has('password'))
+        <div id="error">Houston, We've Got a Problem</div>
         @endif
         <entete-component 
         titre='Bienvenue sur nomdusite !'
@@ -47,23 +47,21 @@
             
             <form method="POST" action="{{ route('login') }}">
                 @csrf
+                @if ($errors->has('username'))
+                <br>
+                <div class="errormessage" role="alert" style="text-align: center;">
+                    <strong>{{ $errors->first('username') }}</strong>
+                </div>
+                @endif
                 <div id="formContent">
 
                     <div class="formlabel">
-                        <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Pseudo') }} :</label>
+                        <label for="username">{{ __('Pseudo') }} :</label>
                     </div>
 
                     <div>
                         <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
-
-                        @if ($errors->has('username'))
-                        <br>
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('username') }}</strong>
-                        </span>
-                        @endif
                     </div>
-
 
                     <div class="formlabel">
                         <label for="password">{{ __('Mot de passe') }} :</label>
@@ -71,19 +69,19 @@
 
                     <div>
                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                        @if ($errors->has('password'))
+                        <br>
+                        <div class="errormessage" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </div>
+                        <br>
+                        @endif
+
                         @if (Route::has('password.request'))
                         <br>
                         <a class="btn btn-link" href="{{ route('password.request') }}">
                             {{ __('Mot de passe oublié ?') }}
                         </a>
-                        @endif
-
-                        @if ($errors->has('password'))
-                        <br>
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                        <br>
                         @endif
                     </div>
                 </div>
@@ -91,17 +89,17 @@
 
                 <div class="btnContainer">
                     <p>
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <label class="form-check-label" for="remember">
-                                {{ __('Rester connecté.e') }}
-                            </label>
+                        <label class="form-check-label" for="remember">
+                            {{ __('Rester connecté.e') }}
+                        </label>
                     </p>
 
-                
-                        <button type="submit" id="btnRegister">
-                            {{ __('Connexion') }}
-                        </button>
+
+                    <button type="submit" id="btnRegister">
+                        {{ __('Connexion') }}
+                    </button>
                 </div>
             </form>
 
