@@ -2928,6 +2928,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2941,6 +2948,9 @@ __webpack_require__.r(__webpack_exports__);
     SvgMethodes: _SvgMethodes_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     SvgExercices: _SvgExercices_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     SvgMenuthin: _SvgMenuthin_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  props: {
+    iduser: String
   },
   mounted: function mounted() {
     sizesup();
@@ -40769,60 +40779,66 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("header", [
     _c("a", { staticClass: "titre", attrs: { href: "/" } }, [
-      _vm._v("Nom du site")
+      _vm._v("Nom du site " + _vm._s(_vm.iduser))
     ]),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "onlymobile dropdown" }, [
-      _c(
-        "button",
-        {
-          staticClass: "dropbtn makeitdrop",
-          attrs: { onclick: "burgerMenu()" }
-        },
-        [_c("svg-menuthin")],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "dropdown-content", attrs: { id: "myDropdown" } },
-        [
-          _c(
-            "a",
-            { attrs: { href: "/" } },
-            [_c("svg-accueil"), _vm._v(" Accueil")],
-            1
-          ),
+    _vm.iduser
+      ? _c("div", [_vm._v("\n\t\t\tYo\n        ")])
+      : _c("div", [
+          _vm._m(0),
           _vm._v(" "),
-          _c(
-            "a",
-            { attrs: { href: "/chap" } },
-            [_c("svg-chapitres"), _vm._v(" Chapitres")],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { attrs: { href: "/meth" } },
-            [_c("svg-methodes"), _vm._v(" Méthodes")],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { attrs: { href: "/exos" } },
-            [_c("svg-exercices"), _vm._v(" Exercices")],
-            1
-          ),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/register" } }, [_vm._v("Inscription")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/login" } }, [_vm._v("Connexion")])
-        ]
-      )
-    ])
+          _c("div", { staticClass: "onlymobile dropdown" }, [
+            _c(
+              "button",
+              {
+                staticClass: "dropbtn makeitdrop",
+                attrs: { onclick: "burgerMenu()" }
+              },
+              [_c("svg-menuthin")],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "dropdown-content", attrs: { id: "myDropdown" } },
+              [
+                _c(
+                  "a",
+                  { attrs: { href: "/" } },
+                  [_c("svg-accueil"), _vm._v(" Accueil")],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { attrs: { href: "/chap" } },
+                  [_c("svg-chapitres"), _vm._v(" Chapitres")],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { attrs: { href: "/meth" } },
+                  [_c("svg-methodes"), _vm._v(" Méthodes")],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { attrs: { href: "/exos" } },
+                  [_c("svg-exercices"), _vm._v(" Exercices")],
+                  1
+                ),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "/register" } }, [
+                  _vm._v("Inscription")
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "/login" } }, [_vm._v("Connexion")])
+              ]
+            )
+          ])
+        ])
   ])
 }
 var staticRenderFns = [

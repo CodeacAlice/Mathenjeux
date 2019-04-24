@@ -34,3 +34,5 @@ Route::get('/evaluations/{id}', 'EvaluationController@show')->name('evaluations.
 
 Route::get('/evaluations/chap/{id}', 'EvaluationController@evalachap')->name('evaluations.evalachap');
 Route::get('/evaluations/{id}/check', 'EvaluationController@checkans')->name('evaluations.checkans');
+
+Route::get('/users', 'UserController@index')->name('users.index');

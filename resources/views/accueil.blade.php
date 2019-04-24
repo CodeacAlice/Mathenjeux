@@ -24,7 +24,9 @@
 
 <body>
   <div id="toppage">
-    <header-component></header-component>
+    @guest <header-component></header-component>
+    @else <header-component iduser="{{ Auth::user()->id }}"></header-component>
+    @endguest
     <entete-component 
     titre='Bienvenue sur nomdusite !'
     sstitre = "nomdusite, un site qu'il est bien pour apprendre"
@@ -36,7 +38,12 @@
     <div id="triangle3" class="tri"><svg-triangle></svg-triangle></div>
     <div id="triangle4" class="tri"><svg-triangle></svg-triangle></div>
     <div id="corps">
-      <h3>Bienvenue, nouvel arrivant !</h3>
+      <h3>
+        Bienvenue,
+        @guest nouvel.le arrivant.e !
+        @else {{ Auth::user()->username }} !
+        @endguest
+      </h3>
       <p>Mettons ici un peu de lorem ipsum qui servira à raconter à quel point le site, il est beau il est bon il est gentil, et que vous devriez donner sa certif’ à la personne qui l’a fait parce que franchement le site il est trop trop bien.</p>
       <p>Vous pouvez aller <a href="/chap">lire les chapitres</a> pour réviser votre cours.</p>
       <p>Vous pouvez aussi <a href="/meth">lire les méthodes</a> pour savoir comment utiliser votre cours.</p>

@@ -24,7 +24,9 @@
 
 <body>
   <div id="toppage">
-    <header-component></header-component>
+    @guest <header-component></header-component>
+    @else <header-component iduser="{{ Auth::user()->id }}"></header-component>
+    @endguest
     <entete-component 
     titre='Bienvenue sur nomdusite !'
     sstitre = "Retrouvez ici la liste des chapitres du programme"

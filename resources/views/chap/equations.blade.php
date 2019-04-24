@@ -29,7 +29,9 @@
 </head>
 <body>
   <div id="toppage">
-    <header-component></header-component>
+    @guest <header-component></header-component>
+    @else <header-component iduser="{{ Auth::user()->id }}"></header-component>
+    @endguest
 
     <navbar-component page=''></navbar-component>
   </div>
