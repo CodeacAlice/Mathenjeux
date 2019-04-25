@@ -17,6 +17,8 @@ a:hover {text-decoration: underline;}
 
 .red {color: red;}
 
+button {cursor: pointer;}
+
 
 .triangle {fill: #fff;}
 .tri {
@@ -28,8 +30,8 @@ a:hover {text-decoration: underline;}
 @media screen and (max-width: 767px) {
 	html {font-size: 14px;}
 	body {padding-top: 40px;}
-	.notmobile {display: none;}
-	.onlydesktop {display: none;}
+	.notmobile {display: none !important;}
+	.onlydesktop {display: none !important;}
 	.tri, .tri svg {
 		width: 25px;
 		height: 25px;
@@ -40,8 +42,8 @@ a:hover {text-decoration: underline;}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
 	html {font-size: 16px;}
 	body {padding-top: 48px;}
-	.onlymobile {display: none;}
-	.onlydesktop {display: none;}
+	.onlymobile {display: none !important;}
+	.onlydesktop {display: none !important;}
 	.tri, .tri svg {
 		width: 60px;
 		height: 60px;
@@ -52,8 +54,8 @@ a:hover {text-decoration: underline;}
 @media screen and (min-width: 1280px) {
 	html {font-size: 18px;}
 	body {padding-top: 48px;}
-	.onlymobile {display: none;}
-	.notdesktop {display: none;}
+	.onlymobile {display: none !important;}
+	.notdesktop {display: none !important;}
 	.tri, .tri svg {
 		width: 60px;
 		height: 60px;
@@ -63,7 +65,7 @@ a:hover {text-decoration: underline;}
 
 
 /* Header */
-header {
+/*header {
 	width: 100%;
 	background: #C4C4C4;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
@@ -79,10 +81,10 @@ header .titre {
 
 header a {
 	color: black;
-}
+}*/
 
 	/* Mobile */
-@media screen and (max-width: 767px) {
+/*@media screen and (max-width: 767px) {
 	header {
 		display: flex;
 	}
@@ -144,9 +146,9 @@ header a {
 	}
 
 	.show {display: block;}
-}
+}*/
 	/* Tablet and desktop */
-@media screen and (min-width: 768px) {
+/*@media screen and (min-width: 768px) {
 	header {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -171,7 +173,7 @@ header a {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
-}
+}*/
 
 
 

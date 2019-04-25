@@ -24,7 +24,7 @@
 
 <body>
   <div id="toppage">
-    <header-component iduser="{{ Auth::user()->id }}"></header-component>
+    <header-component token="{{ Auth::user()->api_token }}"></header-component>
   </div>
 
   <div id="support">

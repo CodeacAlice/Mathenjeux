@@ -36,3 +36,7 @@ Route::get('/evaluations/chap/{id}', 'EvaluationController@evalachap')->name('ev
 Route::get('/evaluations/{id}/check', 'EvaluationController@checkans')->name('evaluations.checkans');
 
 Route::get('/users', 'UserController@index')->name('users.index');
+
+Route::group(['middleware' => 'auth:api'], function() {
+	Route::get('/users/show', 'UserController@show')->name('users.show');
+});
