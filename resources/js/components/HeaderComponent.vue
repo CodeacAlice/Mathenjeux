@@ -1,36 +1,57 @@
 <template>
-	<header v-bind:class="{ connected: token }">
-		<div v-if="token">+</div>
-		<a href="/" class="titre">Nom du site</a>
-		<div v-if="token" style="height:100%;">
-			<div class="dropdown" style="height:100%;">
-				<button onclick="burgerMenu()" class="dropbtn makeitdrop">Bonjour Toto <svg-user></svg-user></button>
-				<div id="myDropdown" class="dropdown-content">
-			        <a href="/home">Mon compte</a>
-			        <a href="/logout">Déconnexion</a>
-			    </div>
-			</div>
+	<header>
+    <div v-if="token" class="token">
+      <button id="btnNote" class="dropbtn makeitdrop" onclick="burgerMenu(3)">+ 
+        <span class="notmobile makeitdrop">Note</span></button>
+      <div id="myDropdown3" class="dropdown-content totheleft makeitdrop">
+        Ajouter une note :
+        <textarea name="Text1" cols="40" rows="5" maxlength="255" class="makeitdrop"></textarea>
+        <button id="addanote" class="makeitdrop">Ajouter</button>
+      </div>
+    </div>
+
+    <a href="/" class="titre">Nom du site</a>
+
+    <div v-if="token" class="token">
+      <div class="dropdown" style="height:100%;">
+        <button id="menuConn" onclick="burgerMenu(1)" class="dropbtn makeitdrop">
+          <span class="notmobile makeitdrop">Bonjour Toto&nbsp;&nbsp;&nbsp; </span>
+          <svg-user></svg-user>
+        </button>
+        <div id="myDropdown1" class="dropdown-content totheright">
+          <a class="onlymobile anotactive">Initié Toto</a>
+          <a href="/home">Mon compte</a>
+          <a href="/"><svg-accueil></svg-accueil> Accueil</a>
+          <a href="/chap"><svg-chapitres></svg-chapitres> Chapitres</a>
+          <a href="/meth"><svg-methodes></svg-methodes> Méthodes</a>
+          <a href="/exos"><svg-exercices></svg-exercices> Exercices</a>
+          <a href="/Logout"
+           onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+            <svg-logout></svg-logout> Déconnexion</a>
         </div>
+      </div>
+    </div>
 
 
-		<div v-else>
-			<div class="notmobile">
-				<a href="/register" class="conn">Inscription</a>
-				<a href="/login" class="conn">Connexion</a>
-			</div>
-			<div class="onlymobile dropdown">
-			    <button onclick="burgerMenu()" class="dropbtn makeitdrop"><svg-menuthin></svg-menuthin></button>
-			    <div id="myDropdown" class="dropdown-content">
-			        <a href="/"><svg-accueil></svg-accueil> Accueil</a>
-			        <a href="/chap"><svg-chapitres></svg-chapitres> Chapitres</a>
-			        <a href="/meth"><svg-methodes></svg-methodes> Méthodes</a>
-			        <a href="/exos"><svg-exercices></svg-exercices> Exercices</a>
-			        <a href="/register">Inscription</a>
-			        <a href="/login">Connexion</a>
-			    </div>
-		    </div> 
-		</div>
-	</header>
+    <div v-else class="nottoken">
+      <div class="notmobile" id="connContainer">
+        <a href="/register" class="conn">Inscription</a>
+        <a href="/login" class="conn">Connexion</a>
+      </div>
+      <div class="onlymobile dropdown">
+        <button onclick="burgerMenu(2)" class="dropbtn makeitdrop"><svg-menuthin></svg-menuthin></button>
+        <div id="myDropdown2" class="dropdown-content totheright">
+          <a href="/"><svg-accueil></svg-accueil> Accueil</a>
+          <a href="/chap"><svg-chapitres></svg-chapitres> Chapitres</a>
+          <a href="/meth"><svg-methodes></svg-methodes> Méthodes</a>
+          <a href="/exos"><svg-exercices></svg-exercices> Exercices</a>
+          <a href="/register">Inscription</a>
+          <a href="/login">Connexion</a>
+        </div>
+      </div> 
+    </div>
+  </header>
 </template>
 
 <script>
@@ -40,6 +61,7 @@ import SvgMethodes from './SvgMethodes.vue';
 import SvgExercices from './SvgExercices.vue';
 import SvgMenuthin from './SvgMenuthin.vue';
 import SvgUser from './SvgUser.vue';
+import SvgLogout from './SvgLogout.vue';
 import axios from 'axios';
 
 export default {
@@ -51,6 +73,7 @@ export default {
 		SvgExercices,
 		SvgMenuthin,
 		SvgUser,
+		SvgLogout,
 	},
 	props: {
     	token : String, 
@@ -110,54 +133,15 @@ header a {
 	}
 
 	.dropbtn {
-	  background-color: #E5E5E5;
-	  color: white;
-	  padding: 0;
-	  font-size: 16px;
-	  border: none;
-	  cursor: pointer;
-	  width: 50px;
 	  height: 40px;
 	}
 
-	.dropbtn:hover, .dropbtn:focus {
-	  background-color: ##f1f1f1;
-	}
-
-	.dropdown {
-	  float: right;
-	  position: relative;
-	  display: inline-block;
-	}
-
-	.dropdown-content {
-	  display: none;
-	  position: absolute;
-	  background-color: #f1f1f1;
-	  min-width: 160px;
-	  overflow: auto;
-	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	  right: 0;
-	  z-index: 2;
-	  text-align: center
-	}
-
-	.dropdown-content a {
-	  color: black;
-	  padding: 12px 16px;
-	  border: 1px solid black;
-	  display: flex;
-	  justify-content: space-around;
-	}
-
-	.dropdown a:hover {background-color: #ddd;}
+	.dropdown-content {min-width: 160px;}
 
 	.dropdown-content svg {
 		width: 22px;
 		height: 22px;
 	}
-
-	.show {display: block;}
 }
 	/* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -169,21 +153,28 @@ header a {
 		font-size: 30px;
 		grid-column: 2;
 	}
-	header div {
-		grid-column: 3;
-		display: flex;
-		margin: auto;
-		margin-right: 30px;
+
+	header button {
+		height: 48px; 
+		color: black;
+		font-size: 16px;
 	}
 
-	.conn {
-		background: #E5E5E5;
-		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-		border-radius: 15px;
-		padding: 3px;
-		margin-left: 15px;
-		padding-left: 15px;
-		padding-right: 15px;
+	.nottoken {
+		margin: auto;
+		margin-right: 20px;
+	}
+
+	.dropbtn svg {
+		width: 30px;
+		height: 30px;
+	}
+
+	.dropdown-content {min-width: 180px;}
+
+	.dropdown-content svg {
+		width: 20px;
+		height: 20px;
 	}
 }
 	/* Desktop */
@@ -192,28 +183,27 @@ header a {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 	}
-	.connected {display: flex;}
+
+	header button {
+		height: 48px; 
+		color: black;
+		font-size: 18px;
+	}
+
+	.nottoken {
+		margin: auto;
+		margin-right: 30px;
+	}
 
 	header .titre {
 		font-size: 30px;
 		grid-column: 2;
 	}
-	header div {
+	#connContainer {
 		grid-column: 3;
 		display: flex;
 		margin: auto;
 		margin-right: 30px;
-	}
-	.connected div {float: right; margin-right:0;}
-
-	.conn {
-		background: #E5E5E5;
-		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-		border-radius: 15px;
-		padding: 3px;
-		margin-left: 15px;
-		padding-left: 15px;
-		padding-right: 15px;
 	}
 
 	.dropbtn svg {
@@ -221,52 +211,87 @@ header a {
 		height: 40px;
 	}
 
-	.dropbtn {
-	  background-color: #E5E5E5;
-	  color: black;
-	  padding: 0 15px;
-	  border: none;
-	  cursor: pointer;
-	}
-
-	.dropbtn:hover, .dropbtn:focus {
-	  background-color: ##f1f1f1;
-	}
-
-	.dropdown {
-	  float: right;
-	  position: relative;
-	  display: inline-block;
-	}
-
-	.dropdown-content {
-	  display: none;
-	  position: absolute;
-	  background-color: #f1f1f1;
-	  min-width: 160px;
-	  overflow: auto;
-	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	  right: 0;
-	  z-index: 2;
-	  text-align: center
-	}
-
-	.dropdown-content a {
-	  color: black;
-	  padding: 12px 16px;
-	  border: 1px solid black;
-	  display: flex;
-	  justify-content: space-around;
-	}
-
-	.dropdown a:hover {background-color: #ddd;}
-
 	.dropdown-content svg {
-		width: 22px;
-		height: 22px;
+		width: 30px;
+		height: 30px;
 	}
 
-	.show {display: block;}
+	.dropdown-content {min-width: 200px;}
+}
+
+#connContainer {
+	display: flex;
+}
+
+.conn {
+	background: #E5E5E5;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	padding: 3px;
+	margin-left: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#menuConn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	word-wrap: anywhere;
+}
+
+.dropbtn {
+  background-color: #E5E5E5;
+  color: black;
+  padding: 0 15px;
+  border: none;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: ##f1f1f1;
+}
+
+.dropdown {
+  float: right;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+.totheleft {left: 0; padding: 20px; width: min-content;}
+.totheright {right: 0; text-align: center}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  word-wrap: anywhere;
+}
+.dropdown .anotactive {color: rgba(0, 0, 0, 0.5);}
+.dropdown a:hover {background-color: #ddd;}
+.dropdown .anotactive:hover {text-decoration: none; background-color: #f1f1f1;}
+
+.show {display: block;}
+
+#addanote {
+	height: auto;
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 15px;
+	padding: 5px 15px;
+	margin-top: 10px;
 }
 
 </style>
