@@ -30,9 +30,11 @@
 <body>
   <div id="toppage">
     @guest <header-component></header-component>
-    @else <header-component iduser="{{ Auth::user()->id }}"></header-component>
+    @else <header-component token="{{ Auth::user()->api_token }}"></header-component>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+      </form>
     @endguest
-
     <navbar-component page=''></navbar-component>
   </div>
 
