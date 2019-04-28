@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Chapter extends Model
 {
     protected $table = 'chapters';
-    protected $filelabel = ['id', 'title'];
+    protected $fillable = ['id', 'title'];
     public $timestamps = false;
 
 
     public function evaluations() {
     	return $this->hasMany(Evaluation::class);
     }
-    public function domaines() {
+    public function fields() {
     	return $this->belongsTo(Field::class);
     }
 }

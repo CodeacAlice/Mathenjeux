@@ -5,8 +5,9 @@
         <span class="notmobile makeitdrop">Note</span></button>
       <div id="myDropdown3" class="dropdown-content totheleft makeitdrop">
         Ajouter une note :
-        <textarea name="Text1" cols="40" rows="5" maxlength="255" class="makeitdrop"></textarea>
-        <button id="addanote" class="makeitdrop">Ajouter</button>
+        <textarea name="Text1" cols="40" rows="5" maxlength="255" class="makeitdrop" v-model="note" v-on:input="message = ''"></textarea>
+        <button id="addanote" class="makeitdrop" v-on:click="addnote">Ajouter</button>
+        <br v-if="message">{{message}}
       </div>
     </div>
 
@@ -25,7 +26,7 @@
           <a href="/chap"><svg-chapitres></svg-chapitres> Chapitres</a>
           <a href="/meth"><svg-methodes></svg-methodes> Méthodes</a>
           <a href="/exos"><svg-exercices></svg-exercices> Exercices</a>
-          <a href="/Logout"
+          <a href="/logout"
            onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
             <svg-logout></svg-logout> Déconnexion</a>
@@ -92,7 +93,22 @@ export default {
 	},
 	data() {
 		return {
-			username: ''
+			username: '',
+			note: '',
+			message: '',
+		}
+	},
+	methods: {
+		addnote() {
+			if (this.note !== '') {
+				axios
+					.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+this.note)
+					.then(response => {
+						console.log(response);
+						this.note = '';
+						this.message = 'La note a bien été ajoutée.';
+					})
+			}
 		}
 	}
 }

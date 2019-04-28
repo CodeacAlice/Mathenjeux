@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Field extends Model
 {
     protected $table = 'fields';
-    protected $filelabel = ['id', 'name'];
+    protected $fillable = ['id', 'name'];
     public $timestamps = false;
 
     public function chapters() {

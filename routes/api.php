@@ -41,4 +41,9 @@ Route::get('/users', 'UserController@index')->name('users.index');
 // Protected routes
 Route::group(['middleware' => 'auth:api'], function() {
 	Route::get('/users/show', 'UserController@show')->name('users.show');
+
+	Route::get('/notes', 'NoteController@index')->name('notes.index');
+	Route::get('/notes/{id}', 'NoteController@show')->name('notes.show');
+	Route::post('/notes/add', 'NoteController@add')->name('notes.add');
+	Route::delete('/notes/{id}/suppr', 'NoteController@suppr')->name('notes.suppr');
 });

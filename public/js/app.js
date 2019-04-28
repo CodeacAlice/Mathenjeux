@@ -2967,6 +2967,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3003,8 +3004,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      username: ''
+      username: '',
+      note: '',
+      message: ''
     };
+  },
+  methods: {
+    addnote: function addnote() {
+      var _this2 = this;
+
+      if (this.note !== '') {
+        axios__WEBPACK_IMPORTED_MODULE_7___default.a.post('http://127.0.0.1:8000/api/notes/add?api_token=' + this.token + '&note=' + this.note).then(function (response) {
+          console.log(response);
+          _this2.note = '';
+          _this2.message = 'La note a bien été ajoutée.';
+        });
+      }
+    }
   }
 });
 
@@ -41008,7 +41024,64 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("header", [
     _vm.token
-      ? _c("div", { staticClass: "token" }, [_vm._m(0), _vm._v(" "), _vm._m(1)])
+      ? _c("div", { staticClass: "token" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-content totheleft makeitdrop",
+              attrs: { id: "myDropdown3" }
+            },
+            [
+              _vm._v("\n        Ajouter une note :\n        "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.note,
+                    expression: "note"
+                  }
+                ],
+                staticClass: "makeitdrop",
+                attrs: {
+                  name: "Text1",
+                  cols: "40",
+                  rows: "5",
+                  maxlength: "255"
+                },
+                domProps: { value: _vm.note },
+                on: {
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.note = $event.target.value
+                    },
+                    function($event) {
+                      _vm.message = ""
+                    }
+                  ]
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "makeitdrop",
+                  attrs: { id: "addanote" },
+                  on: { click: _vm.addnote }
+                },
+                [_vm._v("Ajouter")]
+              ),
+              _vm._v(" "),
+              _vm.message ? _c("br") : _vm._e(),
+              _vm._v(_vm._s(_vm.message) + "\n      ")
+            ]
+          )
+        ])
       : _vm._e(),
     _vm._v(" "),
     _c("a", { staticClass: "titre", attrs: { href: "/" } }, [
@@ -41082,7 +41155,7 @@ var render = function() {
                     "a",
                     {
                       attrs: {
-                        href: "/Logout",
+                        href: "/logout",
                         onclick:
                           "event.preventDefault();\n                         document.getElementById('logout-form').submit();"
                       }
@@ -41096,7 +41169,7 @@ var render = function() {
           )
         ])
       : _c("div", { staticClass: "nottoken" }, [
-          _vm._m(2),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "onlymobile dropdown" }, [
             _c(
@@ -41169,29 +41242,6 @@ var staticRenderFns = [
       [
         _vm._v("+ \n        "),
         _c("span", { staticClass: "notmobile makeitdrop" }, [_vm._v("Note")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "dropdown-content totheleft makeitdrop",
-        attrs: { id: "myDropdown3" }
-      },
-      [
-        _vm._v("\n        Ajouter une note :\n        "),
-        _c("textarea", {
-          staticClass: "makeitdrop",
-          attrs: { name: "Text1", cols: "40", rows: "5", maxlength: "255" }
-        }),
-        _vm._v(" "),
-        _c("button", { staticClass: "makeitdrop", attrs: { id: "addanote" } }, [
-          _vm._v("Ajouter")
-        ])
       ]
     )
   },
