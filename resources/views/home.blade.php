@@ -49,6 +49,7 @@
             {{ __('Logout') }}
         </a>
 
+        <home-component></home-component>
         
     </div>
     </div>
