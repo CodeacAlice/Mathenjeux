@@ -2990,21 +2990,20 @@ __webpack_require__.r(__webpack_exports__);
     token: String
   },
   mounted: function mounted() {
-    sizesup();
-  },
-  methods: {
-    send: function send() {
-      var _this = this;
+    var _this = this;
 
+    sizesup();
+
+    if (this.token) {
       axios__WEBPACK_IMPORTED_MODULE_7___default.a.get('http://127.0.0.1:8000/api/users/show?api_token=' + this.token).then(function (response) {
-        _this.test = 'hello';
+        _this.username = response.data.username;
         console.log(response.data);
       });
     }
   },
   data: function data() {
     return {
-      test: 'coucou'
+      username: ''
     };
   }
 });
@@ -41030,7 +41029,7 @@ var render = function() {
                 },
                 [
                   _c("span", { staticClass: "notmobile makeitdrop" }, [
-                    _vm._v("Bonjour Toto    ")
+                    _vm._v("Initié.e " + _vm._s(_vm.username) + "    ")
                   ]),
                   _vm._v(" "),
                   _c("svg-user")
@@ -41046,7 +41045,7 @@ var render = function() {
                 },
                 [
                   _c("a", { staticClass: "onlymobile anotactive" }, [
-                    _vm._v("Initié Toto")
+                    _vm._v("Initié.e " + _vm._s(_vm.username))
                   ]),
                   _vm._v(" "),
                   _c("a", { attrs: { href: "/home" } }, [_vm._v("Mon compte")]),

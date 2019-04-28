@@ -15,11 +15,11 @@
     <div v-if="token" class="token">
       <div class="dropdown" style="height:100%;">
         <button id="menuConn" onclick="burgerMenu(1)" class="dropbtn makeitdrop">
-          <span class="notmobile makeitdrop">Bonjour Toto&nbsp;&nbsp;&nbsp; </span>
+          <span class="notmobile makeitdrop">Initié.e {{username}}&nbsp;&nbsp;&nbsp; </span>
           <svg-user></svg-user>
         </button>
         <div id="myDropdown1" class="dropdown-content totheright">
-          <a class="onlymobile anotactive">Initié Toto</a>
+          <a class="onlymobile anotactive">Initié.e {{username}}</a>
           <a href="/home">Mon compte</a>
           <a href="/"><svg-accueil></svg-accueil> Accueil</a>
           <a href="/chap"><svg-chapitres></svg-chapitres> Chapitres</a>
@@ -80,20 +80,19 @@ export default {
     },
 	mounted() {
 		sizesup();
-	},
-	methods: {
-		send() {
+		if (this.token) {
 			axios
 				.get('http://127.0.0.1:8000/api/users/show?api_token='+this.token)
 				.then(response => {
-					this.test = 'hello';
+					this.username = response.data.username;
 					console.log(response.data);
 				})
 		}
+
 	},
 	data() {
 		return {
-			test: 'coucou'
+			username: ''
 		}
 	}
 }

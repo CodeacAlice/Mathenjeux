@@ -26,10 +26,7 @@ class UserController extends Controller
      */
 
     public function show() {
-    	$user=Auth::User();
-    	// $user = User::select('id', 'username', 'email')
-    	// 	->where('api_token', $api_token)
-    	// 	->get()->toArray();
+    	$user = Auth::User();
     	return $user;
     }
 }

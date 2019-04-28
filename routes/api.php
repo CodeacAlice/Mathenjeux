@@ -37,6 +37,8 @@ Route::get('/evaluations/{id}/check', 'EvaluationController@checkans')->name('ev
 
 Route::get('/users', 'UserController@index')->name('users.index');
 
+
+// Protected routes
 Route::group(['middleware' => 'auth:api'], function() {
 	Route::get('/users/show', 'UserController@show')->name('users.show');
 });
