@@ -51,6 +51,24 @@ class NoteController extends Controller
     }
 
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $user = Auth::User();
+        $note = $user->notes()->findOrFail($id);
+
+        Note::where('id', $id)
+            ->update(['note' => $request->note]);
+        return $user->notes()->findOrFail($id)->toJson();     
+    }
+
+
 
     /**
      * Remove the specified resource from storage.

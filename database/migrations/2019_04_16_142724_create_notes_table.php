@@ -16,8 +16,8 @@ class CreateNotesTable extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->string('note', 255);
-            $table->integer('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
