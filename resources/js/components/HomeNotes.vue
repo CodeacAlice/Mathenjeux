@@ -1,10 +1,66 @@
 <template>
-	<div>Je suis la mascotte de la Cartoon Fair</div>
+	<div id="corps">
+		<h4>Notes :</h4>
+		<home-notes-element v-for="note in notes" :key="note.iddomaines" v-bind="note" :note.sync="note"></home-notes-element>
+
+		<textarea name="newnote" cols="40" rows="5" maxlength="255" v-model="newnote" v-on:keyup.enter="addnewnote"></textarea> <button v-on:click="addnewnote">Ajouter</button>
+	</div>
 </template>
 
 <script>
+import HomeNotesElement from './HomeNotesElement.vue';
+import axios from 'axios';
+
+
 	export default {
 		name: 'HomeNotes',
+		components: {
+	    	HomeNotesElement,
+	    },
+		props: {
+	    	token : String, 
+	    },
+	    data() {
+	    	return {
+	    		notes: [],
+	    		newnote: '',
+	    	}
+	    },
+		mounted() {
+			sizesup();
+			console.log(this.token);
+			axios
+				.get('http://127.0.0.1:8000/api/notes?api_token='+this.token)
+				.then(response => {
+					this.notes = response.data
+				})
+		},
+		methods: {
+			addnewnote() {
+				if (this.newnote !== '') {
+					axios
+						.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+this.newnote)
+						.then(response => {
+							this.notes.push({id: response.data, note: this.newnote})
+							this.newnote = '';
+						})
+				}
+			}
+		}
 	}
 
 </script>
+
+<style scoped>
+
+.note {
+	border: 1px solid black;
+	padding: 10px;
+	word-break: break-all;
+}
+
+textarea {
+	margin-top: 20px;
+}
+
+</style>

@@ -5,7 +5,7 @@
         <span class="notmobile makeitdrop">Note</span></button>
       <div id="myDropdown3" class="dropdown-content totheleft makeitdrop">
         Ajouter une note :
-        <textarea name="Text1" cols="40" rows="5" maxlength="255" class="makeitdrop" v-model="note" v-on:input="message = ''"></textarea>
+        <textarea name="Text1" cols="40" rows="5" maxlength="255" class="makeitdrop" v-model="note" v-on:input="message = ''" v-on:keyup.enter="addnote"></textarea>
         <button id="addanote" class="makeitdrop" v-on:click="addnote">Ajouter</button>
         <br v-if="message">{{message}}
       </div>
@@ -16,11 +16,11 @@
     <div v-if="token" class="token">
       <div class="dropdown" style="height:100%;">
         <button id="menuConn" onclick="burgerMenu(1)" class="dropbtn makeitdrop">
-          <span class="notmobile makeitdrop">Initié.e {{username}}&nbsp;&nbsp;&nbsp; </span>
+          <span class="notmobile makeitdrop">Padawan {{username}}&nbsp;&nbsp;&nbsp; </span>
           <svg-user></svg-user>
         </button>
         <div id="myDropdown1" class="dropdown-content totheright">
-          <a class="onlymobile anotactive">Initié.e {{username}}</a>
+          <a class="onlymobile anotactive">Padawan {{username}}</a>
           <a href="/home">Mon compte</a>
           <a href="/"><svg-accueil></svg-accueil> Accueil</a>
           <a href="/chap"><svg-chapitres></svg-chapitres> Chapitres</a>
@@ -79,18 +79,6 @@ export default {
 	props: {
     	token : String, 
     },
-	mounted() {
-		sizesup();
-		if (this.token) {
-			axios
-				.get('http://127.0.0.1:8000/api/users/show?api_token='+this.token)
-				.then(response => {
-					this.username = response.data.username;
-					console.log(response.data);
-				})
-		}
-
-	},
 	data() {
 		return {
 			username: '',
@@ -98,13 +86,23 @@ export default {
 			message: '',
 		}
 	},
+	mounted() {
+		sizesup();
+		if (this.token) {
+			axios
+				.get('http://127.0.0.1:8000/api/users/show?api_token='+this.token)
+				.then(response => {
+					this.username = response.data.username;
+				})
+		}
+
+	},
 	methods: {
 		addnote() {
 			if (this.note !== '') {
 				axios
 					.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+this.note)
 					.then(response => {
-						console.log(response);
 						this.note = '';
 						this.message = 'La note a bien été ajoutée.';
 					})

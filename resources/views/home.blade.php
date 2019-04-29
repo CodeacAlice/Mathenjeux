@@ -33,7 +33,11 @@
   <div id="support">
     <div id="triangle3" class="tri"><svg-triangle></svg-triangle></div>
     <div id="triangle4" class="tri"><svg-triangle></svg-triangle></div>
-    <div id="corps">
+
+    <home-component token="{{ Auth::user()->api_token }}"></home-component>
+
+
+    <!-- <div id="corps">
       <h3>Bienvenue, {{ Auth::user()->username }} !</h3>
       @guest
       <div>Salut je suis un.e guest</div>
@@ -48,11 +52,8 @@
                          document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
         </a>
-
-        <home-component></home-component>
-        
-    </div>
-    </div>
+      </div>
+    </div> -->
   </div>
 
   <div id="bottompage"><footer-component></footer-component></div>
