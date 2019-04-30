@@ -3105,6 +3105,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3177,14 +3184,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HomeNotesElement',
   props: {
-    note: Object
+    note: Object,
+    token: String
+  },
+  data: function data() {
+    return {
+      isediting: false,
+      editnote: this.note.note
+    };
   },
   methods: {
     deleteNote: function deleteNote(note) {
       this.$emit('delete-note', note);
+    },
+    editNote: function editNote() {
+      var _this = this;
+
+      if (this.editnote !== '') {
+        var sendingnote = this.editnote.replace(/&/g, '%26');
+        axios.put('http://127.0.0.1:8000/api/notes/' + this.note.id + '/update?api_token=' + this.token + '&note=' + sendingnote).then(function (response) {
+          _this.note.note = _this.editnote;
+          _this.isediting = false;
+        });
+      }
+    },
+    cancelEdit: function cancelEdit() {
+      this.isediting = false;
+      this.editnote = this.note.note;
     }
   }
 });
@@ -41649,7 +41681,7 @@ var render = function() {
           _vm._b(
             {
               key: note.iddomaines,
-              attrs: { note: note },
+              attrs: { note: note, token: _vm.token },
               on: {
                 "update:note": function($event) {
                   note = $event
@@ -41722,13 +41754,52 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "note" }, [
-    _c("div", [_vm._v(_vm._s(_vm.note.note))]),
-    _vm._v(" "),
-    _c("button", [_vm._v("Modifier")]),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.isediting,
+            expression: "!isediting"
+          }
+        ]
+      },
+      [_vm._v(_vm._s(_vm.note.note))]
+    ),
     _vm._v(" "),
     _c(
       "button",
       {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.isediting,
+            expression: "!isediting"
+          }
+        ],
+        on: {
+          click: function($event) {
+            _vm.isediting = true
+          }
+        }
+      },
+      [_vm._v("Modifier")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.isediting,
+            expression: "!isediting"
+          }
+        ],
         on: {
           click: function($event) {
             return _vm.deleteNote(_vm.note)
@@ -41736,6 +41807,65 @@ var render = function() {
         }
       },
       [_vm._v("Supprimer")]
+    ),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.isediting,
+          expression: "isediting"
+        },
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.editnote,
+          expression: "editnote"
+        }
+      ],
+      attrs: { type: "text", name: "editnote" },
+      domProps: { value: _vm.editnote },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.editnote = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isediting,
+            expression: "isediting"
+          }
+        ],
+        on: { click: _vm.editNote }
+      },
+      [_vm._v("Sauvegarder les modifications")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isediting,
+            expression: "isediting"
+          }
+        ],
+        on: { click: _vm.cancelEdit }
+      },
+      [_vm._v("Abandonner les modifications")]
     )
   ])
 }

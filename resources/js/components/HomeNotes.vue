@@ -1,7 +1,14 @@
 <template>
 	<div id="corps">
 		<h4>Notes :</h4>
-		<home-notes-element v-for="note in notes" :key="note.iddomaines" v-bind="note" :note.sync="note" v-on:delete-note="deleteNote"></home-notes-element>
+		<home-notes-element 
+			v-for="note in notes" 
+			:key="note.iddomaines" 
+			v-bind="note" 
+			:note.sync="note" 
+			v-on:delete-note="deleteNote" 
+			v-bind:token="token">
+		</home-notes-element>
 
 		<textarea name="newnote" cols="40" rows="5" maxlength="255" v-model="newnote" v-on:keyup.enter="addnewnote"></textarea> <button v-on:click="addnewnote">Ajouter</button>
 	</div>
