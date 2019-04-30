@@ -3071,7 +3071,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      currentTab: 'Notes',
+      currentTab: 'Summary',
       tabs: ['Summary', 'Notes']
     };
   },
@@ -3144,6 +3144,16 @@ __webpack_require__.r(__webpack_exports__);
           _this2.newnote = '';
         });
       }
+    },
+    deleteNote: function deleteNote(note) {
+      var _this3 = this;
+
+      var id = note['id'];
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]("http://127.0.0.1:8000/api/notes/" + id + "/suppr?api_token=" + this.token).then(function (response) {
+        var index = _this3.notes.indexOf(note);
+
+        _this3.notes.splice(index, 1);
+      });
     }
   }
 });
@@ -3171,6 +3181,11 @@ __webpack_require__.r(__webpack_exports__);
   name: 'HomeNotesElement',
   props: {
     note: Object
+  },
+  methods: {
+    deleteNote: function deleteNote(note) {
+      this.$emit('delete-note', note);
+    }
   }
 });
 
@@ -41638,7 +41653,8 @@ var render = function() {
               on: {
                 "update:note": function($event) {
                   note = $event
-                }
+                },
+                "delete-note": _vm.deleteNote
               }
             },
             "home-notes-element",
@@ -41708,9 +41724,19 @@ var render = function() {
   return _c("div", { staticClass: "note" }, [
     _c("div", [_vm._v(_vm._s(_vm.note.note))]),
     _vm._v(" "),
-    _c("button", [_vm._v("Edit")]),
+    _c("button", [_vm._v("Modifier")]),
     _vm._v(" "),
-    _c("button", [_vm._v("Suppr")])
+    _c(
+      "button",
+      {
+        on: {
+          click: function($event) {
+            return _vm.deleteNote(_vm.note)
+          }
+        }
+      },
+      [_vm._v("Supprimer")]
+    )
   ])
 }
 var staticRenderFns = []

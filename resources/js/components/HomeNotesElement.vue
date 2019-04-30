@@ -1,8 +1,8 @@
 <template>
 	<div class="note">
 		<div>{{note.note}}</div>
-		<button>Edit</button>
-		<button>Suppr</button>
+		<button>Modifier</button>
+		<button @click="deleteNote(note)">Supprimer</button>
 	</div>
 </template>
 
@@ -12,6 +12,11 @@
 		name: 'HomeNotesElement',
 		props: {
 			note: Object,
+		},
+		methods: {
+			deleteNote(note) {
+				this.$emit('delete-note', note);
+			},
 		}
 	}
 

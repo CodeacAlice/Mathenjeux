@@ -34,7 +34,7 @@ export default {
     },
 	data() {
 		return {
-			currentTab: 'Notes',
+			currentTab: 'Summary',
     		tabs: ['Summary', 'Notes']
 		}
 	},
