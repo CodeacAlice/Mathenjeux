@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <a href="/" class="titre">Nom du site</a>
+    <a href="/" class="titre">Mathomatic</a>
 
     <div v-if="token" class="token">
       <div class="dropdown" style="height:100%;">
@@ -100,8 +100,9 @@ export default {
 	methods: {
 		addnote() {
 			if (this.note !== '') {
+				var sendingnote = this.note.replace( /&/g, '%26');
 				axios
-					.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+this.note)
+					.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+sendingnote)
 					.then(response => {
 						this.note = '';
 						this.message = 'La note a bien été ajoutée.';

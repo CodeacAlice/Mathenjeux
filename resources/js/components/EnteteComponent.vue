@@ -2,7 +2,7 @@
 	<div id="entete">
 		<div id="logo"><svg-logo></svg-logo></div>
 		<div>
-			<h1>Bienvenue sur <span class="titre">nomdusite</span> !</h1>
+			<h1>Bienvenue sur <span class="titre">Mathomatic</span> !</h1>
 			<h2>{{sstitre}}</h2>
 		</div>
 		<div id="triangle1" class="tri"><svg-triangle></svg-triangle></div>

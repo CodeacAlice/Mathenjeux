@@ -9,7 +9,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>Accueil</title>
+  <title>Mathomatic - Accueil</title>
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
@@ -31,8 +31,8 @@
       </form>
     @endguest
     <entete-component 
-    titre='Bienvenue sur nomdusite !'
-    sstitre = "nomdusite, un site qu'il est bien pour apprendre"
+    titre='Bienvenue sur Mathomatic !'
+    sstitre = "Mathomatic, un site qu'il est bien pour apprendre"
     ></entete-component>
     <navbar-component page='accueil'></navbar-component>
   </div>
@@ -51,7 +51,11 @@
       <p>Vous pouvez aller <a href="/chap">lire les chapitres</a> pour réviser votre cours.</p>
       <p>Vous pouvez aussi <a href="/meth">lire les méthodes</a> pour savoir comment utiliser votre cours.</p>
       <p>Si vous pensez tout savoir, vous pouvez <a href="/exos">faire des exercices</a> pour vous muscler le cerveau.</p>
+      @guest
       <p>Et bien sûr, vous pouvez <a href="/register">vous inscrire</a> pour la modique somme de 499 euros par mois afin de profiter de plein d’avantages inutiles, ou bien <a href="/login">vous connecter</a> si vous êtes déjà inscrit.</p>
+      @else
+      <p>N'oubliez pas que vous pouvez retrouver votre progression sur <a href="/home">votre page Mon compte</a>.</p>
+      @endguest
     </div>
   </div>
 
