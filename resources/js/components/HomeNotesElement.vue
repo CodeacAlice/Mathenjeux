@@ -1,11 +1,15 @@
 <template>
 	<div class="note">
-		<div v-show="!isediting">{{note.note}}</div>
-		<button v-show="!isediting" @click="isediting = true">Modifier</button>
-		<button v-show="!isediting" @click="deleteNote(note)">Supprimer</button>
-		<input v-show="isediting" type="text" name="editnote" v-model="editnote">
-		<button v-show="isediting" @click="editNote">Sauvegarder les modifications</button>
-		<button v-show="isediting" @click="cancelEdit">Abandonner les modifications</button>
+		<div v-show="!isediting">
+			{{note.note}}<br>
+			<button @click="startEditing">Modifier</button>
+			<button @click="deleteNote(note)">Supprimer</button>
+		</div>
+		<div v-show="isediting">
+			<input type="text" name="editnote" v-model="editnote"><br>
+			<button @click="editNote">Sauvegarder les modifications</button>
+			<button @click="cancelEdit">Abandonner les modifications</button>
+		</div>
 	</div>
 </template>
 
@@ -26,6 +30,10 @@
 		methods: {
 			deleteNote(note) {
 				this.$emit('delete-note', note);
+			},
+			startEditing () {
+				this.editnote = this.note.note;
+				this.isediting = true; 
 			},
 			editNote() {
 				if (this.editnote !== '') {

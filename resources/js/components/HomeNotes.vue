@@ -1,6 +1,6 @@
 <template>
 	<div id="corps">
-		<h4>Notes :</h4>
+		<h4 v-show="notes.length > 0">Notes :</h4>
 		<home-notes-element 
 			v-for="note in notes" 
 			:key="note.iddomaines" 
@@ -45,8 +45,9 @@ import axios from 'axios';
 		methods: {
 			addnewnote() {
 				if (this.newnote !== '') {
+					var sendingnote = this.newnote.replace( /&/g, '%26');
 					axios
-						.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+this.newnote)
+						.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+sendingnote)
 						.then(response => {
 							this.notes.push({id: response.data, note: this.newnote})
 							this.newnote = '';

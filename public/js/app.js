@@ -3013,7 +3013,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.note !== '') {
-        axios__WEBPACK_IMPORTED_MODULE_7___default.a.post('http://127.0.0.1:8000/api/notes/add?api_token=' + this.token + '&note=' + this.note).then(function (response) {
+        var sendingnote = this.note.replace(/&/g, '%26');
+        axios__WEBPACK_IMPORTED_MODULE_7___default.a.post('http://127.0.0.1:8000/api/notes/add?api_token=' + this.token + '&note=' + sendingnote).then(function (response) {
           _this2.note = '';
           _this2.message = 'La note a bien été ajoutée.';
         });
@@ -3142,7 +3143,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.newnote !== '') {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://127.0.0.1:8000/api/notes/add?api_token=' + this.token + '&note=' + this.newnote).then(function (response) {
+        var sendingnote = this.newnote.replace(/&/g, '%26');
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://127.0.0.1:8000/api/notes/add?api_token=' + this.token + '&note=' + sendingnote).then(function (response) {
           _this2.notes.push({
             id: response.data,
             note: _this2.newnote
@@ -3187,6 +3189,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HomeNotesElement',
   props: {
@@ -3202,6 +3208,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     deleteNote: function deleteNote(note) {
       this.$emit('delete-note', note);
+    },
+    startEditing: function startEditing() {
+      this.editnote = this.note.note;
+      this.isediting = true;
     },
     editNote: function editNote() {
       var _this = this;
@@ -40056,7 +40066,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("h1", [
       _vm._v("Bienvenue sur "),
-      _c("span", { staticClass: "titre" }, [_vm._v("nomdusite")]),
+      _c("span", { staticClass: "titre" }, [_vm._v("Mathomatic")]),
       _vm._v(" !")
     ])
   }
@@ -41413,7 +41423,7 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _c("a", { staticClass: "titre", attrs: { href: "/" } }, [
-      _vm._v("Nom du site")
+      _vm._v("Mathomatic")
     ]),
     _vm._v(" "),
     _vm.token
@@ -41673,7 +41683,20 @@ var render = function() {
     "div",
     { attrs: { id: "corps" } },
     [
-      _c("h4", [_vm._v("Notes :")]),
+      _c(
+        "h4",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.notes.length > 0,
+              expression: "notes.length > 0"
+            }
+          ]
+        },
+        [_vm._v("Notes :")]
+      ),
       _vm._v(" "),
       _vm._l(_vm.notes, function(note) {
         return _c(
@@ -41766,78 +41789,28 @@ var render = function() {
           }
         ]
       },
-      [_vm._v(_vm._s(_vm.note.note))]
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        directives: [
+      [
+        _vm._v("\n\t\t" + _vm._s(_vm.note.note)),
+        _c("br"),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.startEditing } }, [_vm._v("Modifier")]),
+        _vm._v(" "),
+        _c(
+          "button",
           {
-            name: "show",
-            rawName: "v-show",
-            value: !_vm.isediting,
-            expression: "!isediting"
-          }
-        ],
-        on: {
-          click: function($event) {
-            _vm.isediting = true
-          }
-        }
-      },
-      [_vm._v("Modifier")]
+            on: {
+              click: function($event) {
+                return _vm.deleteNote(_vm.note)
+              }
+            }
+          },
+          [_vm._v("Supprimer")]
+        )
+      ]
     ),
     _vm._v(" "),
     _c(
-      "button",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: !_vm.isediting,
-            expression: "!isediting"
-          }
-        ],
-        on: {
-          click: function($event) {
-            return _vm.deleteNote(_vm.note)
-          }
-        }
-      },
-      [_vm._v("Supprimer")]
-    ),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.isediting,
-          expression: "isediting"
-        },
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.editnote,
-          expression: "editnote"
-        }
-      ],
-      attrs: { type: "text", name: "editnote" },
-      domProps: { value: _vm.editnote },
-      on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.editnote = $event.target.value
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c(
-      "button",
+      "div",
       {
         directives: [
           {
@@ -41846,26 +41819,39 @@ var render = function() {
             value: _vm.isediting,
             expression: "isediting"
           }
-        ],
-        on: { click: _vm.editNote }
+        ]
       },
-      [_vm._v("Sauvegarder les modifications")]
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.isediting,
-            expression: "isediting"
+      [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.editnote,
+              expression: "editnote"
+            }
+          ],
+          attrs: { type: "text", name: "editnote" },
+          domProps: { value: _vm.editnote },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.editnote = $event.target.value
+            }
           }
-        ],
-        on: { click: _vm.cancelEdit }
-      },
-      [_vm._v("Abandonner les modifications")]
+        }),
+        _c("br"),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.editNote } }, [
+          _vm._v("Sauvegarder les modifications")
+        ]),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.cancelEdit } }, [
+          _vm._v("Abandonner les modifications")
+        ])
+      ]
     )
   ])
 }
