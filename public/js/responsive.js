@@ -21,36 +21,28 @@ window.onclick = function(event) {
 
 // Adapter la hauteur du support à la hauteur de l'écran
 var newheights; var newheightc; var supp;
-var bod; var ent; var nav; var foot; var err; var tabs;
+var bod; var hea; var ent; var nav; var foot; var err; var tabs;
 var allheights = [];
 
 function sizesup() {
-	bod = $('body').height();
+	bod = window.innerHeight;
+	hea = $('header').height();
 	ent = $('#entete').height() + parseInt($('#entete').css('padding-top')) + parseInt($('#entete').css('padding-bottom')) + parseInt($('#entete').css('margin-top')) + parseInt($('#entete').css('margin-bottom'));
 	nav = $('nav').height() + parseInt($('nav').css('padding-top')) + parseInt($('nav').css('padding-bottom')) + parseInt($('nav').css('margin-top')) + parseInt($('nav').css('margin-bottom'));
 	foot = $('footer').height() + parseInt($('footer').css('padding-top')) + parseInt($('footer').css('padding-bottom')) + parseInt($('footer').css('margin-top')) + parseInt($('footer').css('margin-bottom'));
 	err = $('#error').height() + parseInt($('#error').css('padding-top')) + parseInt($('#error').css('padding-bottom')) + parseInt($('#error').css('margin-top')) + parseInt($('#error').css('margin-bottom'));
 	tabs = $('#tabscontainer').height();
 
-	allheights = [ent, nav, foot, err, tabs];
+	allheights = [hea, ent, nav, foot, err, tabs];
 
 	supp = $('#support').height() + parseInt($('#support').css('padding-top')) + parseInt($('#support').css('padding-bottom'));;
 	newheights = bod;
 	for (var i = 0; i < allheights.length; i++) {
 		if (allheights[i] > 0) {newheights -= allheights[i]}
 	}
-
-	if (supp <= newheights) {
-		$('#support').css('min-height', (newheights)+'px');
-		newheightc = newheights - parseInt($('#support').css('padding-top')) - parseInt($('#support').css('padding-bottom'));
-		$('#corps').css('min-height', (newheightc)+'px');
-	}
-	else {
-		$('#corps').css('min-height', '0');
-		$('#support').css('min-height', '0');
-		$('#corps').css('height', 'auto');
-		$('#support').css('height', 'auto');
-	}
+	$('#support').css('min-height', (newheights)+'px');
+	newheightc = newheights - parseInt($('#support').css('padding-top')) - parseInt($('#support').css('padding-bottom'));
+	$('#corps').css('min-height', (newheightc)+'px');
 }
 sizesup();
 
