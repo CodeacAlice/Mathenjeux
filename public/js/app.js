@@ -3248,10 +3248,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HomeSummary',
+  props: {
+    token: String
+  },
+  data: function data() {
+    return {
+      username: '',
+      points: 0
+    };
+  },
   mounted: function mounted() {
+    var _this = this;
+
     sizesup();
+    axios.get('http://127.0.0.1:8000/api/users/show?api_token=' + this.token).then(function (response) {
+      _this.username = response.data.username;
+      _this.points = response.data.points;
+    });
   }
 });
 
@@ -41878,9 +41894,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "corps" } }, [
-    _vm._v(
-      "\n\tMettre ici un résumé des infos et de l'activité de l'utilisateur\n"
-    )
+    _c("h3", [_vm._v("Bienvenue, " + _vm._s(_vm.username) + " !")]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v(
+        "Vous avez pour l'instant " +
+          _vm._s(_vm.points) +
+          " points, ce qui fait de vous un.e Padawan de niveau 1."
+      )
+    ])
   ])
 }
 var staticRenderFns = []
