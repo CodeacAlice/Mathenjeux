@@ -77,12 +77,12 @@
                         <br>
                         @endif
 
-                        @if (Route::has('password.request'))
+                        <!-- @if (Route::has('password.request'))
                         <br>
                         <a class="btn btn-link" href="{{ route('password.request') }}">
                             {{ __('Mot de passe oublié ?') }}
                         </a>
-                        @endif
+                        @endif -->
                     </div>
                 </div>
 

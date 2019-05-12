@@ -56,7 +56,7 @@
                     </div>
 
                     <div>
-                        <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
+                        <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required maxlength="255">
 
                         @if ($errors->has('username'))
                         <br>
@@ -69,7 +69,7 @@
                     <div class="formlabel"><label for="email">{{ __('Adresse mail') }}<span class="red">*</span> :</label></div>
 
                     <div>
-                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required maxlength="255">
 
                         @if ($errors->has('email'))
                         <br>
@@ -84,7 +84,7 @@
                     <div class="formlabel"><label for="password">{{ __('Mot de passe') }}<span class="red">*</span> :</label></div>
 
                     <div>
-                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required minlength="8" maxlength="255">
                         <br><span class="smalltext">(8 caractères minimum)</span>
 
                         @if ($errors->has('password'))
@@ -100,7 +100,7 @@
                     <div class="formlabel"><label for="password-confirm">{{ __('Confirmer le mot de passe') }}<span class="red">*</span> :</label></div>
 
                     <div>
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required minlength="8" maxlength="255">
                     </div>
                 </div>
 
