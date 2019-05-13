@@ -42,7 +42,7 @@
                 ],
                 score: 0,
                 nb: 1,
-                nbtot: 3,
+                nbtot: 1,
                 answer: '',
                 message: '',
                 hasrep: false,
@@ -57,9 +57,10 @@
                 this.end = false;
                 this.hasrep = false;
                 axios
-                    .get('http://127.0.0.1:8000/api/evaluations/chap/'+this.idchap+'?nbtot='+this.nbtot)
+                    .get('http://127.0.0.1:8000/api/evaluations/chap/'+this.idchap)
                     .then(response => {
                         this.questions = response.data;
+                        this.nbtot = this.questions.length;
                         this.handleResize();
                     })
             },

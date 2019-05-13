@@ -2741,7 +2741,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       score: 0,
       nb: 1,
-      nbtot: 3,
+      nbtot: 1,
       answer: '',
       message: '',
       hasrep: false,
@@ -2757,8 +2757,9 @@ __webpack_require__.r(__webpack_exports__);
       this.answer = '';
       this.end = false;
       this.hasrep = false;
-      axios.get('http://127.0.0.1:8000/api/evaluations/chap/' + this.idchap + '?nbtot=' + this.nbtot).then(function (response) {
+      axios.get('http://127.0.0.1:8000/api/evaluations/chap/' + this.idchap).then(function (response) {
         _this.questions = response.data;
+        _this.nbtot = _this.questions.length;
 
         _this.handleResize();
       });
