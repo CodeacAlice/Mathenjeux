@@ -3,7 +3,7 @@
 1. Renommer le fichier .env.exemple en .env
 2. Renseigner les variables DB_* correspondant à la base de données créée
 3. Lancer la commande 'php artisan key:generate'
-4. Lancer la commande 'php migrate:fresh --seed'
+4. Lancer la commande 'php artisan migrate:fresh --seed'
 5. Pour mettre en route l'application, utiliser la commande 'php artisan serve'
 
 
