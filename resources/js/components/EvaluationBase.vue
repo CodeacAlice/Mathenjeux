@@ -61,11 +61,9 @@
                     .then(response => {
                         this.questions = response.data;
                         this.nbtot = this.questions.length;
-                        this.handleResize();
                     })
             },
             submitanswer() {
-                this.handleResize();
                 if (this.answer !== '') {
                     var rep = ''+this.answer;
                     rep = rep.replace( /\s/g, '').replace( /&/g, '%26').toLowerCase();
