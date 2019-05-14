@@ -61,6 +61,7 @@
                     .then(response => {
                         this.questions = response.data;
                         this.nbtot = this.questions.length;
+                        this.handleResize();
                     })
             },
             submitanswer() {

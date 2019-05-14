@@ -2770,6 +2770,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('http://127.0.0.1:8000/api/evaluations/chap/' + this.idchap).then(function (response) {
         _this.questions = response.data;
         _this.nbtot = _this.questions.length;
+
+        _this.handleResize();
       });
     },
     submitanswer: function submitanswer() {
