@@ -2448,12 +2448,22 @@ __webpack_require__.r(__webpack_exports__);
       this.xl *= m;
       this.nbl *= m;
       this.drawEq();
+
+      if (this.xl == 0 && this.nbl == 0 && this.xr == 0 && this.nbr == 0) {
+        this.fail = true;
+        this.erreur = 'Hmm, on dirait bien que vous ne pouvez plus continuer...';
+      }
     },
     multR: function multR() {
       var m = parseFloat(this.multr);
       this.xr *= m;
       this.nbr *= m;
       this.drawEq();
+
+      if (this.xl == 0 && this.nbl == 0 && this.xr == 0 && this.nbr == 0) {
+        this.fail = true;
+        this.erreur = 'Coincé ?';
+      }
     },
     divL: function divL() {
       var d = parseFloat(this.divl);
@@ -2768,10 +2778,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.answer !== '') {
         var rep = '' + this.answer;
         rep = rep.replace(/\s/g, '').replace(/&/g, '%26').toLowerCase();
-        console.log(rep);
         axios.get('http://127.0.0.1:8000/api/evaluations/' + this.questions[this.nb - 1].id + '/check/?answer=' + rep).then(function (response) {
-          console.log(response.data);
-
           if (response.data) {
             _this2.message = 'Exact !';
             _this2.score += 100 / _this2.nbtot;
@@ -3130,7 +3137,6 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     sizesup();
-    console.log(this.token);
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/notes?api_token=' + this.token).then(function (response) {
       _this.notes = response.data;
     });
