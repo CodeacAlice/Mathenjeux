@@ -67,11 +67,9 @@
                 if (this.answer !== '') {
                     var rep = ''+this.answer;
                     rep = rep.replace( /\s/g, '').replace( /&/g, '%26').toLowerCase();
-                    console.log(rep);
                     axios
                         .get('http://127.0.0.1:8000/api/evaluations/'+this.questions[this.nb-1].id+'/check/?answer='+rep)
                         .then(response => {
-                            console.log(response.data);
                             if (response.data) {
                                 this.message = 'Exact !';
                                 this.score += 100/this.nbtot;

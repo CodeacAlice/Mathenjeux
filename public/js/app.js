@@ -41722,7 +41722,7 @@ var render = function() {
           "home-notes-element",
           _vm._b(
             {
-              key: note.iddomaines,
+              key: note.id,
               attrs: { note: note, token: _vm.token },
               on: {
                 "update:note": function($event) {

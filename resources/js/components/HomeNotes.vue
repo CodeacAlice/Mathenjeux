@@ -3,7 +3,7 @@
 		<h4 v-show="notes.length > 0">Notes :</h4>
 		<home-notes-element 
 			v-for="note in notes" 
-			:key="note.iddomaines" 
+			:key="note.id" 
 			v-bind="note" 
 			:note.sync="note" 
 			v-on:delete-note="deleteNote" 
@@ -35,7 +35,6 @@ import axios from 'axios';
 	    },
 		mounted() {
 			sizesup();
-			console.log(this.token);
 			axios
 				.get('http://127.0.0.1:8000/api/notes?api_token='+this.token)
 				.then(response => {
