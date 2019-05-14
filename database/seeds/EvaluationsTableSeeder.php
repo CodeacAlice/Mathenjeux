@@ -13,12 +13,7 @@ class EvaluationsTableSeeder extends Seeder
     {
         DB::table('evaluations')->insert([
         	[
-        		'question' => 'Question test dont la réponse est bonjour.',
-        		'answer' => 'bonjour',
-        		'chapters_id' => 5
-        	],
-        	[
-        		'question' => 'De quel type est l\'équation 3x-1=7 ?',
+        		'question' => 'De quel type est l\'équation 3x-1=7 ? (commencer la réponse par "équation")',
         		'answer' => 'équationsimple',
         		'chapters_id' => 5
         	],
@@ -38,15 +33,25 @@ class EvaluationsTableSeeder extends Seeder
         		'chapters_id' => 5
         	],
         	[
-        		'question' => 'Question test dont la réponse est 1&2.',
-        		'answer' => '1&2',
+        		'question' => 'De quel type est l\'équation x²+9=6x ? (commencer la réponse par "équation")',
+        		'answer' => 'équationproduitnul',
         		'chapters_id' => 5
         	],
         	[
-        		'question' => 'Question test dont la réponse est "\'"\'".',
-        		'answer' => '"\'"\'"',
+        		'question' => 'Vrai ou faux : 1/2 est solution de l\'équation 3x-1=-x+1.',
+        		'answer' => 'vrai',
         		'chapters_id' => 5
-        	]
+        	],
+            [
+                'question' => 'Quelle est la solution de l\'équation : -5x=2x-7 ?',
+                'answer' => '1',
+                'chapters_id' => 5
+            ],
+            [
+                'question' => 'Quelle est la solution de l\'équation : 8-12x=3x+13 ?',
+                'answer' => '-1/3',
+                'chapters_id' => 5
+            ],
         ]);
     }
 }
