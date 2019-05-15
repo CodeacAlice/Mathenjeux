@@ -2779,7 +2779,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.answer !== '') {
         var rep = '' + this.answer;
-        rep = rep.replace(/\s/g, '').replace(/&/g, '%26').toLowerCase();
+        rep = rep.replace(/\s/g, '').replace(/&/g, '%26').toLowerCase().replace(/\+/g, '%2B').replace(/#/g, '%23');
         axios.get('http://127.0.0.1:8000/api/evaluations/' + this.questions[this.nb - 1].id + '/check/?answer=' + rep).then(function (response) {
           if (response.data) {
             _this2.message = 'Exact !';
@@ -3019,7 +3019,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.note !== '') {
-        var sendingnote = this.note.replace(/&/g, '%26');
+        var sendingnote = this.note.replace(/&/g, '%26').replace(/\+/g, '%2B').replace(/#/g, '%23');
         axios__WEBPACK_IMPORTED_MODULE_7___default.a.post('http://127.0.0.1:8000/api/notes/add?api_token=' + this.token + '&note=' + sendingnote).then(function (response) {
           _this2.note = '';
           _this2.message = 'La note a bien été ajoutée.';
@@ -3148,7 +3148,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.newnote !== '') {
-        var sendingnote = this.newnote.replace(/&/g, '%26');
+        var sendingnote = this.newnote.replace(/&/g, '%26').replace(/\+/g, '%2B').replace(/#/g, '%23');
         axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://127.0.0.1:8000/api/notes/add?api_token=' + this.token + '&note=' + sendingnote).then(function (response) {
           _this2.notes.push({
             id: response.data,
@@ -3222,7 +3222,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.editnote !== '') {
-        var sendingnote = this.editnote.replace(/&/g, '%26');
+        var sendingnote = this.editnote.replace(/&/g, '%26').replace(/\+/g, '%2B').replace(/#/g, '%23');
         axios.put('http://127.0.0.1:8000/api/notes/' + this.note.id + '/update?api_token=' + this.token + '&note=' + sendingnote).then(function (response) {
           _this.note.note = _this.editnote;
           _this.isediting = false;

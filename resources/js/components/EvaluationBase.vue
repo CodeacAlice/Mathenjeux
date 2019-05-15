@@ -67,7 +67,7 @@
             submitanswer() {
                 if (this.answer !== '') {
                     var rep = ''+this.answer;
-                    rep = rep.replace( /\s/g, '').replace( /&/g, '%26').toLowerCase();
+                    rep = rep.replace( /\s/g, '').replace( /&/g, '%26').toLowerCase().replace( /\+/g, '%2B').replace( /#/g, '%23');
                     axios
                         .get('http://127.0.0.1:8000/api/evaluations/'+this.questions[this.nb-1].id+'/check/?answer='+rep)
                         .then(response => {

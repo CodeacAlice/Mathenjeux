@@ -100,7 +100,7 @@ export default {
 	methods: {
 		addnote() {
 			if (this.note !== '') {
-				var sendingnote = this.note.replace( /&/g, '%26');
+				var sendingnote = this.note.replace( /&/g, '%26').replace( /\+/g, '%2B').replace( /#/g, '%23');
 				axios
 					.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+sendingnote)
 					.then(response => {

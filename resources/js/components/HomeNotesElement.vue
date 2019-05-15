@@ -37,7 +37,7 @@
 			},
 			editNote() {
 				if (this.editnote !== '') {
-					var sendingnote = this.editnote.replace( /&/g, '%26')
+					var sendingnote = this.editnote.replace( /&/g, '%26').replace( /\+/g, '%2B').replace( /#/g, '%23');
 					axios
 						.put('http://127.0.0.1:8000/api/notes/'+this.note.id+'/update?api_token='+this.token+'&note='+sendingnote)
 						.then(response => {
