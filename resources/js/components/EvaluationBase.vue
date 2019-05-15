@@ -20,7 +20,7 @@
                 <p>Le quiz est terminé !</p>
                 <p>Votre score est de {{score}}/100</p>
                 <p v-show="score===100">Félicitations ! Vous avez validé le chapitre ! 😁</p>
-                <a href="#" rel="modal:close">Fermer</a>
+                <button><a href="#" rel="modal:close">Fermer</a></button>
             </div>
         </div>
     </div>
@@ -109,9 +109,12 @@
     .modal a.close-modal {
         display: none;
     }
+    a {color: #542f08;}
 
     #inputeval {
         box-sizing: border-box;
     }
+
+    .blocker {z-index: 3;}
     
 </style>

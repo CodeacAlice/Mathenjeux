@@ -70,7 +70,7 @@ import axios from 'axios';
 <style scoped>
 
 .note {
-	border: 1px solid black;
+	border: 1px solid #542f08;
 	padding: 10px;
 	word-break: break-all;
 }

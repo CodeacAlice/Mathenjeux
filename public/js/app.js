@@ -8514,7 +8514,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#modaleval {height: auto;}\n.modal a.close-modal {\n    display: none;\n}\n#inputeval {\n    box-sizing: border-box;\n}\n\n", ""]);
+exports.push([module.i, "\n#modaleval {height: auto;}\n.modal a.close-modal {\n    display: none;\n}\na {color: #542f08;}\n#inputeval {\n    box-sizing: border-box;\n}\n.blocker {z-index: 3;}\n\n", ""]);
 
 // exports
 
@@ -8533,7 +8533,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nheader[data-v-153bfd55] {\n\twidth: 100%;\n\tbackground: #C4C4C4;\n\tbox-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);\n\tposition:fixed;\n\ttop: 0;\n\tz-index: 2;\n}\nheader .titre[data-v-153bfd55] {\n\ttext-align: center;\n\tmargin: auto;\n}\nheader a[data-v-153bfd55] {\n\tcolor: black;\n}\n\n\t/* Mobile */\n@media screen and (max-width: 767px) {\nheader[data-v-153bfd55] {\n\t\tdisplay: flex;\n}\nheader .titre[data-v-153bfd55] {\n\t\tfont-size: 22px;\n}\n.dropbtn svg[data-v-153bfd55] {\n\t\twidth: 25px;\n\t\theight: 25px;\n}\n.dropbtn[data-v-153bfd55] {\n\t  height: 40px;\n}\n.dropdown-content[data-v-153bfd55] {min-width: 160px;}\n.dropdown-content svg[data-v-153bfd55] {\n\t\twidth: 22px;\n\t\theight: 22px;\n}\n}\n\t/* Tablet */\n@media screen and (min-width: 768px) and (max-width: 1279px) {\nheader[data-v-153bfd55] {\n\t\tdisplay: grid;\n\t\tgrid-template-columns: 1fr 1fr 1fr;\n}\nheader .titre[data-v-153bfd55] {\n\t\tfont-size: 30px;\n\t\tgrid-column: 2;\n}\nheader button[data-v-153bfd55] {\n\t\theight: 48px; \n\t\tcolor: black;\n\t\tfont-size: 16px;\n}\n.nottoken[data-v-153bfd55] {\n\t\tmargin: auto;\n\t\tmargin-right: 20px;\n}\n.dropbtn svg[data-v-153bfd55] {\n\t\twidth: 30px;\n\t\theight: 30px;\n}\n.dropdown-content[data-v-153bfd55] {min-width: 180px;}\n.dropdown-content svg[data-v-153bfd55] {\n\t\twidth: 20px;\n\t\theight: 20px;\n}\n}\n\t/* Desktop */\n@media screen and (min-width: 1280px) {\nheader[data-v-153bfd55] {\n\t\tdisplay: grid;\n\t\tgrid-template-columns: 1fr 1fr 1fr;\n}\nheader button[data-v-153bfd55] {\n\t\theight: 48px; \n\t\tcolor: black;\n\t\tfont-size: 18px;\n}\n.nottoken[data-v-153bfd55] {\n\t\tmargin: auto;\n\t\tmargin-right: 30px;\n}\nheader .titre[data-v-153bfd55] {\n\t\tfont-size: 30px;\n\t\tgrid-column: 2;\n}\n#connContainer[data-v-153bfd55] {\n\t\tgrid-column: 3;\n\t\tdisplay: flex;\n\t\tmargin: auto;\n\t\tmargin-right: 30px;\n}\n.dropbtn svg[data-v-153bfd55] {\n\t\twidth: 40px;\n\t\theight: 40px;\n}\n.dropdown-content svg[data-v-153bfd55] {\n\t\twidth: 30px;\n\t\theight: 30px;\n}\n.dropdown-content[data-v-153bfd55] {min-width: 200px;}\n}\n#connContainer[data-v-153bfd55] {\n\tdisplay: flex;\n}\n.conn[data-v-153bfd55] {\n\tbackground: #E5E5E5;\n\tbox-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);\n\tborder-radius: 15px;\n\tpadding: 3px;\n\tmargin-left: 15px;\n\tpadding-left: 15px;\n\tpadding-right: 15px;\n}\n#menuConn[data-v-153bfd55] {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\tword-wrap: anywhere;\n}\n.dropbtn[data-v-153bfd55] {\n  background-color: #E5E5E5;\n  color: black;\n  padding: 0 15px;\n  border: none;\n}\n.dropbtn[data-v-153bfd55]:hover, .dropbtn[data-v-153bfd55]:focus {\n  background-color: ##f1f1f1;\n}\n.dropdown[data-v-153bfd55] {\n  float: right;\n  position: relative;\n  display: inline-block;\n}\n.dropdown-content[data-v-153bfd55] {\n  display: none;\n  position: absolute;\n  background-color: #f1f1f1;\n  overflow: auto;\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n  z-index: 2;\n}\n.totheleft[data-v-153bfd55] {left: 0; padding: 20px; width: -webkit-min-content; width: -moz-min-content; width: min-content;}\n.totheright[data-v-153bfd55] {right: 0; text-align: center}\n.dropdown-content a[data-v-153bfd55] {\n  color: black;\n  padding: 12px 16px;\n  border: 1px solid black;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  word-wrap: anywhere;\n}\n.dropdown .anotactive[data-v-153bfd55] {color: rgba(0, 0, 0, 0.5);}\n.dropdown a[data-v-153bfd55]:hover {background-color: #ddd;}\n.dropdown .anotactive[data-v-153bfd55]:hover {text-decoration: none; background-color: #f1f1f1;}\n.show[data-v-153bfd55] {display: block;}\n#addanote[data-v-153bfd55] {\n\theight: auto;\n\tbackground: #FFFFFF;\n\tborder: 1px solid #000000;\n\tbox-sizing: border-box;\n\tbox-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);\n\tborder-radius: 15px;\n\tpadding: 5px 15px;\n\tmargin-top: 10px;\n}\n\n", ""]);
+exports.push([module.i, "\nsvg[data-v-153bfd55] {fill: #542f08;}\nheader[data-v-153bfd55] {\n\twidth: 100%;\n\tbackground: #ed9940;\n\tbox-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);\n\tposition:fixed;\n\ttop: 0;\n\tz-index: 2;\n}\nheader .titre[data-v-153bfd55] {\n\ttext-align: center;\n\tmargin: auto;\n}\nheader a[data-v-153bfd55] {\n\tcolor: #542f08;\n}\n\n\t/* Mobile */\n@media screen and (max-width: 767px) {\nheader[data-v-153bfd55] {\n\t\tdisplay: flex;\n}\nheader .titre[data-v-153bfd55] {\n\t\tfont-size: 22px;\n}\n.dropbtn svg[data-v-153bfd55] {\n\t\twidth: 25px;\n\t\theight: 25px;\n}\n.dropbtn[data-v-153bfd55] {\n\t  height: 40px;\n}\n.dropdown-content[data-v-153bfd55] {min-width: 160px;}\n.dropdown-content svg[data-v-153bfd55] {\n\t\twidth: 22px;\n\t\theight: 22px;\n}\n}\n\t/* Tablet */\n@media screen and (min-width: 768px) and (max-width: 1279px) {\nheader[data-v-153bfd55] {\n\t\tdisplay: grid;\n\t\tgrid-template-columns: 1fr 1fr 1fr;\n}\nheader .titre[data-v-153bfd55] {\n\t\tfont-size: 30px;\n\t\tgrid-column: 2;\n}\nheader button[data-v-153bfd55] {\n\t\theight: 48px; \n\t\tcolor: black;\n\t\tfont-size: 16px;\n}\n.nottoken[data-v-153bfd55] {\n\t\tmargin: auto;\n\t\tmargin-right: 20px;\n}\n.dropbtn svg[data-v-153bfd55] {\n\t\twidth: 30px;\n\t\theight: 30px;\n}\n.dropdown-content[data-v-153bfd55] {min-width: 180px;}\n.dropdown-content svg[data-v-153bfd55] {\n\t\twidth: 20px;\n\t\theight: 20px;\n}\n}\n\t/* Desktop */\n@media screen and (min-width: 1280px) {\nheader[data-v-153bfd55] {\n\t\tdisplay: grid;\n\t\tgrid-template-columns: 1fr 1fr 1fr;\n}\nheader button[data-v-153bfd55] {\n\t\theight: 48px; \n\t\tcolor: black;\n\t\tfont-size: 18px;\n}\n.nottoken[data-v-153bfd55] {\n\t\tmargin: auto;\n\t\tmargin-right: 30px;\n}\nheader .titre[data-v-153bfd55] {\n\t\tfont-size: 30px;\n\t\tgrid-column: 2;\n}\n#connContainer[data-v-153bfd55] {\n\t\tgrid-column: 3;\n\t\tdisplay: flex;\n\t\tmargin: auto;\n\t\tmargin-right: 30px;\n}\n.dropbtn svg[data-v-153bfd55] {\n\t\twidth: 40px;\n\t\theight: 40px;\n}\n.dropdown-content svg[data-v-153bfd55] {\n\t\twidth: 30px;\n\t\theight: 30px;\n}\n.dropdown-content[data-v-153bfd55] {min-width: 200px;}\n}\n#connContainer[data-v-153bfd55] {\n\tdisplay: flex;\n}\n.conn[data-v-153bfd55] {\n\tbackground: #fad39e;\n\tbox-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);\n\tborder-radius: 15px;\n\tpadding: 3px;\n\tmargin-left: 15px;\n\tpadding-left: 15px;\n\tpadding-right: 15px;\n}\n#menuConn[data-v-153bfd55] {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\tword-wrap: anywhere;\n}\n.dropbtn[data-v-153bfd55] {\n  background-color: #f9cc90;\n  color: #542f08;\n  padding: 0 15px;\n  border: none;\n}\n.dropbtn[data-v-153bfd55]:hover, .dropbtn[data-v-153bfd55]:focus {\n  background-color: #f9cc90;\n}\n.dropdown[data-v-153bfd55] {\n  float: right;\n  position: relative;\n  display: inline-block;\n}\n.dropdown-content[data-v-153bfd55] {\n  display: none;\n  position: absolute;\n  background-color: #fad39e;\n  overflow: auto;\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n  z-index: 2;\n}\n.totheleft[data-v-153bfd55] {left: 0; padding: 20px; width: -webkit-min-content; width: -moz-min-content; width: min-content;}\n.totheright[data-v-153bfd55] {right: 0; text-align: center}\n.dropdown-content a[data-v-153bfd55] {\n  color: #542f08;\n  padding: 12px 16px;\n  border: 1px solid #542f08;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  word-wrap: anywhere;\n}\n.dropdown .anotactive[data-v-153bfd55] {color: rgba(84, 47, 8, 0.5);}\n.dropdown a[data-v-153bfd55]:hover {background-color: #edca9c;}\n.dropdown .anotactive[data-v-153bfd55]:hover {text-decoration: none; background-color: #fad39e;}\n.show[data-v-153bfd55] {display: block;}\n#addanote[data-v-153bfd55] {\n\theight: auto;\n\tbackground: #FFFFFF;\n\tborder: 1px solid #542f08;\n\tcolor: #542f08;\n\tbox-sizing: border-box;\n\tbox-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);\n\tborder-radius: 15px;\n\tpadding: 5px 15px;\n\tmargin-top: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -8552,7 +8552,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#homecomp[data-v-782dcf83] {\n\twidth: 100%;\n}\n#tabscontainer[data-v-782dcf83] {\n\tmargin: auto;\n}\n#corps[data-v-782dcf83] {border-radius: 0}\n\n\t/* Mobile */\n@media screen and (max-width: 767px) {\n#tabscontainer[data-v-782dcf83] {\n\t\twidth: 93%;\n}\n}\n\t/* Tablet */\n@media screen and (min-width: 768px) and (max-width: 1279px) {\n#tabscontainer[data-v-782dcf83] {\n\t\twidth: 85%;\n}\n}\n\t/* Desktop */\n@media screen and (min-width: 1280px) {\n#tabscontainer[data-v-782dcf83] {\n\t\twidth: 77%;\n}\n}\n.tab-button[data-v-782dcf83] {\n\tbackground-color: rgba(255, 255, 255, 0.5);\n\tborder: 0;\n\tpadding: 10px;\n}\n.active[data-v-782dcf83] {\n\tbackground-color: #fff;\n}\n\n\n", ""]);
+exports.push([module.i, "\n#homecomp[data-v-782dcf83] {\n\twidth: 100%;\n}\n#tabscontainer[data-v-782dcf83] {\n\tmargin: auto;\n}\n#corps[data-v-782dcf83] {border-radius: 0}\n\n\t/* Mobile */\n@media screen and (max-width: 767px) {\n#tabscontainer[data-v-782dcf83] {\n\t\twidth: 93%;\n}\n}\n\t/* Tablet */\n@media screen and (min-width: 768px) and (max-width: 1279px) {\n#tabscontainer[data-v-782dcf83] {\n\t\twidth: 85%;\n}\n}\n\t/* Desktop */\n@media screen and (min-width: 1280px) {\n#tabscontainer[data-v-782dcf83] {\n\t\twidth: 77%;\n}\n}\n.tab-button[data-v-782dcf83] {\n\tbackground-color: rgba(255, 255, 255, 0.5);\n\tborder: 0;\n\tpadding: 10px;\n\tcolor: rgba(84, 47, 8, 0.5);\n}\n.active[data-v-782dcf83] {\n\tbackground-color: #fff;\n\tcolor: #542f08;\n}\n\n\n", ""]);
 
 // exports
 
@@ -8571,7 +8571,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.note[data-v-11fae647] {\n\tborder: 1px solid black;\n\tpadding: 10px;\n\tword-break: break-all;\n}\ntextarea[data-v-11fae647] {\n\tmargin-top: 20px;\n}\n\n", ""]);
+exports.push([module.i, "\n.note[data-v-11fae647] {\n\tborder: 1px solid #542f08;\n\tpadding: 10px;\n\tword-break: break-all;\n}\ntextarea[data-v-11fae647] {\n\tmargin-top: 20px;\n}\n\n", ""]);
 
 // exports
 
@@ -41176,15 +41176,22 @@ var render = function() {
             [_vm._v("Félicitations ! Vous avez validé le chapitre ! 😁")]
           ),
           _vm._v(" "),
-          _c("a", { attrs: { href: "#", rel: "modal:close" } }, [
-            _vm._v("Fermer")
-          ])
+          _vm._m(0)
         ]
       )
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", [
+      _c("a", { attrs: { href: "#", rel: "modal:close" } }, [_vm._v("Fermer")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -42482,8 +42489,7 @@ var render = function() {
         staticClass: "star",
         attrs: {
           d:
-            "m10.2 0.8l2.5 5.9 6.3 0.5c0.4 0 0.6 0.6 0.3 0.9l-4.8 4.2 1.4 6.2c0.1 0.4-0.4 0.8-0.7 0.5l-5.5-3.3-5.5 3.3c-0.4 0.2-0.8-0.1-0.7-0.5l1.4-6.2-4.8-4.2c-0.3-0.3-0.2-0.8 0.3-0.9l6.3-0.5 2.5-5.9c0.2-0.4 0.7-0.4 0.9 0z",
-          fill: "#C4C4C4"
+            "m10.2 0.8l2.5 5.9 6.3 0.5c0.4 0 0.6 0.6 0.3 0.9l-4.8 4.2 1.4 6.2c0.1 0.4-0.4 0.8-0.7 0.5l-5.5-3.3-5.5 3.3c-0.4 0.2-0.8-0.1-0.7-0.5l1.4-6.2-4.8-4.2c-0.3-0.3-0.2-0.8 0.3-0.9l6.3-0.5 2.5-5.9c0.2-0.4 0.7-0.4 0.9 0z"
         }
       })
     ]
