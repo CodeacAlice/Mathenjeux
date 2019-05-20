@@ -257,19 +257,17 @@ canvas {
   background: #FFFFFF;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
+.chapdispo svg {fill: #542f08;}
 .chapnotdispo {
   background: rgba(255, 255, 255, 0.5);
   color: rgba(84, 47, 8, 0.5);
 }
 .chapnotdispo:hover {text-decoration: none;}
-.chapnotdispo svg {
-  fill: rgba(84, 47, 8, 0.5);
-}
+.chapnotdispo svg {fill: rgba(84, 47, 8, 0.5);}
 
 #otherChaps p {padding: 0; margin: 0;}
 
 #otherChaps svg {
-  fill: #542f08;
   width: 25px;
   height: 25px;
 }
