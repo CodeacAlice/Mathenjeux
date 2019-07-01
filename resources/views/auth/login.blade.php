@@ -20,7 +20,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito:400,700,800" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Varela+Round&display=swap" rel="stylesheet"> 
 </head>
 
 <body>

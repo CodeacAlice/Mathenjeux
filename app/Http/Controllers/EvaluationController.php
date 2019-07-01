@@ -37,8 +37,8 @@ class EvaluationController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function evalachap(Request $request, int $idchap) {
-    	$nbquest = $request->nbtot;
+    public function evalachap(int $idchap) {
+    	$nbquest = 3;
         $alleval = Evaluation::select('id', 'question')->where('chapters_id', $idchap)->get()->toArray();
         $eval = [];
         for ($i=0; $i < $nbquest; $i++) { 

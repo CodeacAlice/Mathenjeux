@@ -227,12 +227,20 @@ export default {
 			this.xl *= m;
 			this.nbl *= m;
 			this.drawEq();
+			if (this.xl == 0 && this.nbl == 0 && this.xr == 0 && this.nbr == 0) {
+				this.fail = true;
+				this.erreur = 'Hmm, on dirait bien que vous ne pouvez plus continuer...'
+			}
 		},
 		multR() {
 			var m = parseFloat(this.multr);
 			this.xr *= m;
 			this.nbr *= m;
 			this.drawEq();
+			if (this.xl == 0 && this.nbl == 0 && this.xr == 0 && this.nbr == 0) {
+				this.fail = true;
+				this.erreur = 'Coincé ?'
+			}
 		},
 		divL() {
 			var d = parseFloat(this.divl);

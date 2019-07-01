@@ -20,7 +20,7 @@
                 <p>Le quiz est terminé !</p>
                 <p>Votre score est de {{score}}/100</p>
                 <p v-show="score===100">Félicitations ! Vous avez validé le chapitre ! 😁</p>
-                <a href="#" rel="modal:close">Fermer</a>
+                <button><a href="#" rel="modal:close">Fermer</a></button>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 ],
                 score: 0,
                 nb: 1,
-                nbtot: 3,
+                nbtot: 1,
                 answer: '',
                 message: '',
                 hasrep: false,
@@ -57,22 +57,20 @@
                 this.end = false;
                 this.hasrep = false;
                 axios
-                    .get('http://127.0.0.1:8000/api/evaluations/chap/'+this.idchap+'?nbtot='+this.nbtot)
+                    .get('http://127.0.0.1:8000/api/evaluations/chap/'+this.idchap)
                     .then(response => {
                         this.questions = response.data;
+                        this.nbtot = this.questions.length;
                         this.handleResize();
                     })
             },
             submitanswer() {
-                this.handleResize();
                 if (this.answer !== '') {
                     var rep = ''+this.answer;
-                    rep = rep.replace( /\s/g, '').replace( /&/g, '%26').toLowerCase();
-                    console.log(rep);
+                    rep = rep.replace( /\s/g, '').replace( /&/g, '%26').toLowerCase().replace( /\+/g, '%2B').replace( /#/g, '%23');
                     axios
                         .get('http://127.0.0.1:8000/api/evaluations/'+this.questions[this.nb-1].id+'/check/?answer='+rep)
                         .then(response => {
-                            console.log(response.data);
                             if (response.data) {
                                 this.message = 'Exact !';
                                 this.score += 100/this.nbtot;
@@ -111,9 +109,12 @@
     .modal a.close-modal {
         display: none;
     }
+    a {color: #542f08;}
 
     #inputeval {
         box-sizing: border-box;
     }
+
+    .blocker {z-index: 3;}
     
 </style>

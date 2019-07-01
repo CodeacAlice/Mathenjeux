@@ -100,7 +100,7 @@ export default {
 	methods: {
 		addnote() {
 			if (this.note !== '') {
-				var sendingnote = this.note.replace( /&/g, '%26');
+				var sendingnote = this.note.replace( /&/g, '%26').replace( /\+/g, '%2B').replace( /#/g, '%23');
 				axios
 					.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+sendingnote)
 					.then(response => {
@@ -114,9 +114,11 @@ export default {
 </script>
 
 <style scoped>
+svg {fill: #542f08;}
+
 header {
 	width: 100%;
-	background: #C4C4C4;
+	background: #ed9940;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 	position:fixed;
 	top: 0;
@@ -129,7 +131,7 @@ header .titre {
 }
 
 header a {
-	color: black;
+	color: #542f08;
 }
 
 	/* Mobile */
@@ -238,7 +240,7 @@ header a {
 }
 
 .conn {
-	background: #E5E5E5;
+	background: #fad39e;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 15px;
 	padding: 3px;
@@ -255,14 +257,14 @@ header a {
 }
 
 .dropbtn {
-  background-color: #E5E5E5;
-  color: black;
+  background-color: #f9cc90;
+  color: #542f08;
   padding: 0 15px;
   border: none;
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: ##f1f1f1;
+  background-color: #f9cc90;
 }
 
 .dropdown {
@@ -274,7 +276,7 @@ header a {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #fad39e;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 2;
@@ -283,24 +285,25 @@ header a {
 .totheright {right: 0; text-align: center}
 
 .dropdown-content a {
-  color: black;
+  color: #542f08;
   padding: 12px 16px;
-  border: 1px solid black;
+  border: 1px solid #542f08;
   display: flex;
   justify-content: space-around;
   align-items: center;
   word-wrap: anywhere;
 }
-.dropdown .anotactive {color: rgba(0, 0, 0, 0.5);}
-.dropdown a:hover {background-color: #ddd;}
-.dropdown .anotactive:hover {text-decoration: none; background-color: #f1f1f1;}
+.dropdown .anotactive {color: rgba(84, 47, 8, 0.5);}
+.dropdown a:hover {background-color: #edca9c;}
+.dropdown .anotactive:hover {text-decoration: none; background-color: #fad39e;}
 
 .show {display: block;}
 
 #addanote {
 	height: auto;
 	background: #FFFFFF;
-	border: 1px solid #000000;
+	border: 1px solid #542f08;
+	color: #542f08;
 	box-sizing: border-box;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 	border-radius: 15px;

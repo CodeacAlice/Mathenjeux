@@ -81,9 +81,11 @@ export default {
 	background-color: rgba(255, 255, 255, 0.5);
 	border: 0;
 	padding: 10px;
+	color: rgba(84, 47, 8, 0.5);
 }
 .active {
 	background-color: #fff;
+	color: #542f08;
 }
 
 

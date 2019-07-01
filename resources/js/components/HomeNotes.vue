@@ -3,7 +3,7 @@
 		<h4 v-show="notes.length > 0">Notes :</h4>
 		<home-notes-element 
 			v-for="note in notes" 
-			:key="note.iddomaines" 
+			:key="note.id" 
 			v-bind="note" 
 			:note.sync="note" 
 			v-on:delete-note="deleteNote" 
@@ -35,7 +35,6 @@ import axios from 'axios';
 	    },
 		mounted() {
 			sizesup();
-			console.log(this.token);
 			axios
 				.get('http://127.0.0.1:8000/api/notes?api_token='+this.token)
 				.then(response => {
@@ -45,7 +44,7 @@ import axios from 'axios';
 		methods: {
 			addnewnote() {
 				if (this.newnote !== '') {
-					var sendingnote = this.newnote.replace( /&/g, '%26');
+					var sendingnote = this.newnote.replace( /&/g, '%26').replace( /\+/g, '%2B').replace( /#/g, '%23');
 					axios
 						.post('http://127.0.0.1:8000/api/notes/add?api_token='+this.token+'&note='+sendingnote)
 						.then(response => {
@@ -71,7 +70,7 @@ import axios from 'axios';
 <style scoped>
 
 .note {
-	border: 1px solid black;
+	border: 1px solid #542f08;
 	padding: 10px;
 	word-break: break-all;
 }

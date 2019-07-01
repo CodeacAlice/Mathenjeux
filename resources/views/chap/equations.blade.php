@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Baloo|Nunito:400,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Varela+Round&display=swap" rel="stylesheet">
 
   <!-- Vue -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

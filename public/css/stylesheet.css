@@ -1,6 +1,8 @@
 /* Général */
 html {
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Varela Round', sans-serif;
+	color: #542f08 ;
+	background-color: #fff;
 }
 
 body {
@@ -73,13 +75,14 @@ button {cursor: pointer;}
 }
 
 #entete {
-	background: #E8E8E8;
+	background: #fad39e;
 	display: grid;
 	grid-template-columns: 1fr 4fr;
 	text-align: center;
 	position: relative;
 	box-sizing: border-box;
 }
+#entete svg {fill: #ed9940;}
 
 #triangle1 {
 	bottom: 0;
@@ -156,22 +159,23 @@ nav {
 }
 
 nav a {
-	color: black;
+	color: #542f08;
 	margin: auto;
 	padding: 10px;
 }
 
 .actif {
-	background-color: #C4C4C4;
+	background-color: #ed9940;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
+.actif svg {fill: #542f08;}
 .notactive {
-	background: rgba(196, 196, 196, 0.5);
-	color: rgba(0, 0, 0, 0.5);
+	background: rgba(237, 153, 64, 0.5);
+	color: rgba(84, 47, 8, 0.5);
 }
 .notactive:hover {text-decoration: none;}
 .notactive svg {
-	fill: rgba(0, 0, 0, 0.5);
+	fill: rgba(84, 47, 8, 0.5);
 }
 
 	/* Mobile */
@@ -225,7 +229,7 @@ nav a {
 
 /* Corps de la page */
 #support {
-	background: #D8D8D8;
+	background: #efa85c;
 	width: 100%;
 	position: relative;
 	box-sizing: border-box;
@@ -290,7 +294,7 @@ h3 {
 
 /* Footer */
 footer {
-	background: #C4C4C4;
+	background: #ed9940;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 	text-align: center;
@@ -306,7 +310,7 @@ footer div {
 
 footer a {
 	font-weight: 900;
-	color: black;
+	color: #542f08;
 }
 
 	/* Mobile */
