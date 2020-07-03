@@ -1,12 +1,31 @@
-## Pour installer le projet Mathomatic
+# Mathenjeux
+---
 
-1. Renommer le fichier .env.exemple en .env
-2. Renseigner les variables DB_* correspondant à la base de données créée
-3. Lancer la commande 'php artisan key:generate'
-4. Lancer la commande 'php migrate:fresh --seed'
-5. Pour mettre en route l'application, utiliser la commande 'php artisan serve'
+## Description / Contexte
+Le projet Mathenjeux a été réalisé afin de valider la formation Code Académie et d'obtenir le titre de développeuse web et web mobile.
+
+Le principe du site est d'aider les collègiens à apprendre leurs leçons de mathématiques, en utilisant des jeux afin de rendre celles-ci plus accessibles aux élèves en difficulté. Par manque de temps le site n'est pas complet, mais contient un chapitre entier avec une évaluation, la possibilité de s'inscrire et de prendre des notes.
 
 
+## Prérequis / Installation
+Il faut tout d'abord avoir installé Laravel sur cotre ordinateur. Ensuite, il vous faudra :
+* Créer une base de données en local
+* Renommer le fichier .env.exemple en .env
+* Y renseigner les variables DB_* correspondant à la base de données créée
+* Lancer la commande 'composer update'
+* Lancer la commande 'php artisan key:generate'
+* Lancer la commande 'php artisan migrate:fresh --seed'
+
+Une fois cela fait, il faudra utiliser la commande 'php artisan serve' pour mettre en route l'application.
+
+
+## Technologies utilisées
+* Laravel
+* Vue.Js
+* Design responsive
+
+
+## Sources
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
