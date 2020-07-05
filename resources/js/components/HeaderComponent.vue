@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <a href="/" class="titre">Mathomatic</a>
+    <a href="/" class="titre">Mathenjeux</a>
 
     <div v-if="token" class="token">
       <div class="dropdown" style="height:100%;">
