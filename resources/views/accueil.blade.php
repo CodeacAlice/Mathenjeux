@@ -9,7 +9,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>Mathomatic - Accueil</title>
+  <title>Mathenjeux - Accueil</title>
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
@@ -31,8 +31,8 @@
       </form>
     @endguest
     <entete-component 
-    titre='Bienvenue sur Mathomatic !'
-    sstitre = "Mathomatic, et apprendre devient automatique"
+    titre='Bienvenue sur Mathenjeux !'
+    sstitre = "Apprendre par les jeux, apprendre mieux !"
     ></entete-component>
     <navbar-component page='accueil'></navbar-component>
   </div>
@@ -47,7 +47,7 @@
         @else {{ Auth::user()->username }} !
         @endguest
       </h3>
-      <p>Vous êtes sur Mathomatic, un site qui a vocation à vous faire apprendre les maths de la manière la plus agréable possible&nbsp;: avec des jeux&nbsp;! Pour cela, plusieurs outils sont à votre disposition.</p>
+      <p>Vous êtes sur Mathenjeux, un site qui a vocation à vous faire apprendre les maths de la manière la plus agréable possible&nbsp;: avec des jeux&nbsp;! Pour cela, plusieurs outils sont à votre disposition.</p>
       <p>Vous pouvez aller <a href="/chap">lire les chapitres</a> pour réviser votre cours.</p>
       <p>Vous pouvez aussi <a href="/meth">lire les méthodes</a> pour savoir comment utiliser votre cours.</p>
       <p>Si vous pensez tout savoir, vous pouvez <a href="/exos">faire des exercices</a> pour vous muscler le cerveau.</p>

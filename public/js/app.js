@@ -40087,7 +40087,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("h1", [
       _vm._v("Bienvenue sur "),
-      _c("span", { staticClass: "titre" }, [_vm._v("Mathomatic")]),
+      _c("span", { staticClass: "titre" }, [_vm._v("Mathenjeux")]),
       _vm._v(" !")
     ])
   }
@@ -41451,7 +41451,7 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _c("a", { staticClass: "titre", attrs: { href: "/" } }, [
-      _vm._v("Mathomatic")
+      _vm._v("Mathenjeux")
     ]),
     _vm._v(" "),
     _vm.token
